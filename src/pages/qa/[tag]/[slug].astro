@@ -1,0 +1,64 @@
+---
+/**
+ * /qa/[tag]/[slug].astro — 개별 Q&A 동적 라우트
+ * SEO: /qa/suffering/why-does-god-allow-suffering
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('qa', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { tag: post.data.tag, slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout
+  title={`${post.data.title} — GSFGrace`}
+  description={post.data.description ?? post.data.question}
+  lang={post.data.lang}
+>
+  <article class="qa-article">
+    <header class="qa-header">
+      <a href={`/qa/${post.data.tag}`} class="back-link" id="qa-back-link">
+        ← {post.data.tag}
+      </a>
+      <p class="qa-question">{post.data.question}</p>
+      <h1 class="qa-title">{post.data.title}</h1>
+    </header>
+
+    <div class="qa-content">
+      <Content />
+    </div>
+
+    <footer class="qa-footer">
+      <div class="story-cta-banner" id="qa-article-story-cta">
+        <p class="cta-question">この記事を書いた人は？</p>
+        <a href="/story" class="cta-link">GSFGraceについて →</a>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .qa-article { padding: 2rem 0; }
+  .qa-header { padding-bottom: 2rem; border-bottom: 1px solid #e7e5e4; margin-bottom: 2rem; }
+  .back-link { font-size: 0.8rem; color: #7c3aed; text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; }
+  .back-link:hover { text-decoration: underline; }
+  .qa-question { font-size: 0.9rem; color: #78716c; font-style: italic; margin: 1rem 0 0.5rem; }
+  .qa-title { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 800; color: #1c1917; letter-spacing: -0.02em; }
+  .qa-content { font-size: 1rem; line-height: 1.85; color: #292524; }
+  .qa-content :global(h2) { font-size: 1.25rem; font-weight: 700; color: #1c1917; margin: 2rem 0 0.75rem; }
+  .qa-content :global(p) { margin-bottom: 1.25rem; }
+  .qa-content :global(blockquote) { border-left: 3px solid #7c3aed; padding: 0.75rem 1.25rem; background: #faf5ff; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
+  .qa-footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e7e5e4; }
+  .story-cta-banner { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 10px; padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .cta-question { font-size: 0.9rem; color: #57534e; }
+  .cta-link { font-size: 0.9rem; font-weight: 600; color: #7c3aed; text-decoration: none; white-space: nowrap; }
+  .cta-link:hover { text-decoration: underline; }
+</style>

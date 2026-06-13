@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="ἀρχή（準備中）— GSFGrace"
+  description="深い知的探求のための場所。準備中です。"
+  lang="ja"
+>
+  <div class="arche-page">
+    <header class="page-header">
+      <p class="page-tag">準備中 / 준비중</p>
+      <h1 class="arche-title">ἀρχή</h1>
+      <p class="arche-subtitle">アルケ — 始まり / 起源</p>
+    </header>
+
+    <div class="coming-soon-body">
+      <p class="coming-text">
+        深い問いのための場所を準備しています。<br />
+        神学、哲学、文化——信仰の知的深みへ。
+      </p>
+
+      <div class="newsletter-invite">
+        <p>準備ができたらお知らせします。ニュースレターに登録してください。</p>
+        <form action="#" method="POST" class="inline-form" aria-label="Newsletter for arche">
+          <input type="email" name="email" placeholder="メールアドレス" required id="arche-email" />
+          <button type="submit" id="arche-subscribe-btn">登録する</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="page-story-cta">
+      <a href="/story" id="arche-story-link">GSFGraceについて →</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .arche-page { padding: 2rem 0; text-align: center; }
+  .page-header { padding: 3rem 0 2rem; }
+  .page-tag { font-size: 0.75rem; letter-spacing: 0.15em; color: #7c3aed; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; }
+  .arche-title { font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; color: #1c1917; letter-spacing: -0.04em; font-style: italic; }
+  .arche-subtitle { font-size: 1rem; color: #78716c; margin-top: 0.5rem; }
+  .coming-soon-body { max-width: 480px; margin: 2rem auto; }
+  .coming-text { font-size: 1rem; color: #57534e; line-height: 1.8; margin-bottom: 2rem; }
+  .newsletter-invite { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 10px; padding: 1.5rem; }
+  .newsletter-invite p { font-size: 0.9rem; color: #57534e; margin-bottom: 1rem; }
+  .inline-form { display: flex; gap: 0.5rem; }
+  .inline-form input { flex: 1; padding: 0.5rem 0.75rem; border: 1px solid #e7e5e4; border-radius: 6px; font-size: 0.875rem; outline: none; }
+  .inline-form input:focus { border-color: #7c3aed; }
+  .inline-form button { padding: 0.5rem 1rem; background: #7c3aed; color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+  .inline-form button:hover { background: #6d28d9; }
+  .page-story-cta { margin-top: 3rem; font-size: 0.9rem; }
+</style>

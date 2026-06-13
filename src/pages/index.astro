@@ -1,0 +1,196 @@
+---
+/**
+ * index.astro — GSFGrace 홈페이지
+ * JA First: 일본어가 기본 언어
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="GSFGrace — Hodos Tokyo"
+  description="ὁδός. 道. 길. 요14:6 — Receive Life. Become Mercy."
+  lang="ja"
+>
+  <section class="hero">
+    <p class="hero-tag">ὁδός — 道 — 길</p>
+    <h1 class="hero-title">
+      Receive Life.<br />Become Mercy.
+    </h1>
+    <p class="hero-verse">「わたしは道であり、真理であり、命である」— ヨハネ14:6</p>
+    <div class="hero-actions">
+      <a href="/story" class="btn-primary" id="hero-story-cta">はじめての方へ →</a>
+      <a href="/qa" class="btn-secondary" id="hero-qa-link">疑問に答える</a>
+    </div>
+  </section>
+
+  <section class="section-intro">
+    <p class="section-lead">
+      東京・日本橋から、福音をお届けします。<br />
+      キリスト教への疑問、信仰と日常、東京での宣教の歩み。
+    </p>
+  </section>
+
+  <section class="section-links" aria-label="コンテンツへのリンク">
+    <div class="link-cards">
+      <a href="/qa" class="link-card" id="home-qa-card">
+        <span class="link-card-icon">❓</span>
+        <span class="link-card-label">疑問に答える</span>
+        <span class="link-card-desc">なぜ神は苦しみを許すのか？ 科学と信仰は矛盾するか？</span>
+      </a>
+      <a href="/devotion" class="link-card" id="home-devotion-card">
+        <span class="link-card-icon">📖</span>
+        <span class="link-card-label">今日のみことば</span>
+        <span class="link-card-desc">毎日の短い聖書の黙想</span>
+      </a>
+      <a href="/walk" class="link-card" id="home-walk-card">
+        <span class="link-card-icon">🚶</span>
+        <span class="link-card-label">歩みながら</span>
+        <span class="link-card-desc">東京での宣教の日々の記録</span>
+      </a>
+      <a href="/faith-life" class="link-card" id="home-faith-card">
+        <span class="link-card-icon">✨</span>
+        <span class="link-card-label">信仰と生活</span>
+        <span class="link-card-desc">日常の中に見つける福音のかたち</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 4rem 0 3rem;
+    text-align: center;
+  }
+
+  .hero-tag {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: #7c3aed;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1c1917;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-verse {
+    font-size: 0.9rem;
+    color: #78716c;
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background: #7c3aed;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+  }
+
+  .btn-primary:hover {
+    background: #6d28d9;
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background: transparent;
+    color: #57534e;
+    border: 1.5px solid #d6d3d1;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .btn-secondary:hover {
+    border-color: #7c3aed;
+    color: #7c3aed;
+    text-decoration: none;
+  }
+
+  .section-intro {
+    padding: 2rem 0 3rem;
+    border-top: 1px solid #e7e5e4;
+  }
+
+  .section-lead {
+    font-size: 1rem;
+    color: #57534e;
+    text-align: center;
+    line-height: 1.9;
+  }
+
+  .section-links {
+    padding: 1rem 0 2rem;
+  }
+
+  .link-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .link-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.25rem;
+    border: 1px solid #e7e5e4;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+    background: #fff;
+  }
+
+  .link-card:hover {
+    border-color: #c4b5fd;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .link-card-icon {
+    font-size: 1.5rem;
+  }
+
+  .link-card-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1c1917;
+  }
+
+  .link-card-desc {
+    font-size: 0.8rem;
+    color: #78716c;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 500px) {
+    .link-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

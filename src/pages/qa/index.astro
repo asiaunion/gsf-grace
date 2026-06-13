@@ -1,0 +1,108 @@
+---
+/**
+ * /qa — 疑問に答える / 궁금한 질문
+ * SEO 핵심: 일본인 검색 쿼리 직접 매칭
+ * 라우트: /qa/[tag]/[slug]
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('qa', ({ data }) => !data.draft);
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// 태그별 그룹화
+const tags = [
+  { key: 'suffering', label: '苦しみ', emoji: '💔' },
+  { key: 'death', label: '死', emoji: '🌿' },
+  { key: 'science', label: '科学', emoji: '🔬' },
+  { key: 'bible', label: '聖書', emoji: '📖' },
+  { key: 'jesus', label: 'イエス', emoji: '✝️' },
+  { key: 'church', label: '教会', emoji: '🏛️' },
+  { key: 'prayer', label: '祈り', emoji: '🙏' },
+  { key: 'salvation', label: '救い', emoji: '🕊️' },
+  { key: 'relations', label: '人間関係', emoji: '🤝' },
+  { key: 'money', label: 'お金', emoji: '💴' },
+  { key: 'work', label: '仕事', emoji: '💼' },
+] as const;
+
+type TagKey = typeof tags[number]['key'];
+
+const groupedByTag = tags.reduce((acc, { key }) => {
+  acc[key] = posts.filter((p) => p.data.tag === key);
+  return acc;
+}, {} as Record<TagKey, typeof posts>);
+---
+
+<BaseLayout
+  title="疑問に答える — GSFGrace"
+  description="なぜ神は苦しみを許すのか？ キリスト教への素朴な疑問に答えます。"
+  lang="ja"
+>
+  <header class="page-header">
+    <p class="page-tag">疑問に答える / 궁금한 질문</p>
+    <h1>素朴な疑問</h1>
+    <p class="page-desc">
+      なぜ神は苦しみを許すのか？<br />
+      科学と信仰は矛盾するか？ — 一緒に考えましょう。
+    </p>
+  </header>
+
+  <nav class="tag-nav" aria-label="質問のカテゴリ">
+    {tags.map(({ key, label, emoji }) => (
+      <a href={`/qa/${key}`} class="tag-pill" id={`qa-tag-${key}`}>
+        {emoji} {label}
+        {groupedByTag[key].length > 0 && (
+          <span class="tag-count">{groupedByTag[key].length}</span>
+        )}
+      </a>
+    ))}
+  </nav>
+
+  {posts.length === 0 ? (
+    <div class="empty-state">
+      <p>準備中です。まずは <a href="/story">はじめての方へ</a> をお読みください。</p>
+    </div>
+  ) : (
+    <div class="qa-list">
+      {tags.map(({ key, label, emoji }) => groupedByTag[key].length > 0 && (
+        <section class="qa-section" aria-labelledby={`section-${key}`}>
+          <h2 id={`section-${key}`} class="section-heading">{emoji} {label}</h2>
+          <ul role="list" class="post-list">
+            {groupedByTag[key].map((post) => (
+              <li>
+                <a href={`/qa/${post.data.tag}/${post.slug}`} class="post-link" id={`qa-${post.slug}`}>
+                  <p class="post-question">{post.data.question}</p>
+                  <h3 class="post-title">{post.data.title}</h3>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  )}
+
+  <div class="page-story-cta">
+    <a href="/story" id="qa-story-link">この記事を書いた人は？ →</a>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header { padding: 2rem 0; border-bottom: 1px solid #e7e5e4; margin-bottom: 2rem; }
+  .page-tag { font-size: 0.75rem; letter-spacing: 0.12em; color: #7c3aed; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .page-header h1 { font-size: 2rem; font-weight: 800; color: #1c1917; letter-spacing: -0.02em; }
+  .page-desc { color: #78716c; margin-top: 0.5rem; font-size: 0.9rem; line-height: 1.7; }
+  .tag-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+  .tag-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.35rem 0.75rem; border: 1px solid #e7e5e4; border-radius: 999px; font-size: 0.8rem; color: #57534e; text-decoration: none; transition: border-color 0.15s, background 0.15s; background: #fff; }
+  .tag-pill:hover { border-color: #7c3aed; color: #7c3aed; text-decoration: none; background: #faf5ff; }
+  .tag-count { background: #ede9fe; color: #7c3aed; font-size: 0.7rem; padding: 0 0.3rem; border-radius: 999px; font-weight: 700; }
+  .empty-state { padding: 3rem 0; color: #78716c; text-align: center; }
+  .qa-section { margin-bottom: 2.5rem; }
+  .section-heading { font-size: 1rem; font-weight: 700; color: #1c1917; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #f5f5f4; }
+  .post-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .post-link { display: block; padding: 1rem 1.25rem; border: 1px solid #e7e5e4; border-radius: 8px; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; background: #fff; }
+  .post-link:hover { border-color: #c4b5fd; box-shadow: 0 2px 8px rgba(124,58,237,0.07); text-decoration: none; }
+  .post-question { font-size: 0.78rem; color: #78716c; font-style: italic; margin-bottom: 0.2rem; }
+  .post-title { font-size: 0.95rem; font-weight: 600; color: #1c1917; }
+  .page-story-cta { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e7e5e4; text-align: center; font-size: 0.9rem; }
+</style>

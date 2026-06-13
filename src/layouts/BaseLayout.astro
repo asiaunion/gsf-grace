@@ -1,0 +1,87 @@
+---
+/**
+ * BaseLayout.astro
+ * GSFGrace 공통 레이아웃
+ * - 모든 페이지 공통 <head>, Nav, Footer 포함
+ * - lang prop: 'ja' (기본) | 'ko'
+ */
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: 'ja' | 'ko';
+}
+
+const {
+  title,
+  description = 'GSFGrace — Hodos Tokyo. Receive Life. Become Mercy.',
+  lang = 'ja',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="GSFGrace" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={Astro.url.href} />
+    <title>{title} | GSFGrace</title>
+  </head>
+  <body>
+    <Nav lang={lang} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>
+
+<style is:global>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --color-bg: #fafaf9;
+    --color-text: #1c1917;
+    --color-muted: #78716c;
+    --color-accent: #7c3aed; /* 보라 — 은혜·복음 */
+    --color-accent-soft: #ede9fe;
+    --font-sans: 'Noto Sans JP', 'Noto Sans KR', system-ui, sans-serif;
+    --font-serif: 'Noto Serif JP', 'Noto Serif KR', Georgia, serif;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  main {
+    min-height: 70vh;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>

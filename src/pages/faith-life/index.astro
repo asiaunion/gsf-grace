@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('faith-life', ({ data }) => !data.draft);
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="信仰と生活 — GSFGrace"
+  description="日常の中に見つける福音のかたち。エッセイ・コラム。"
+  lang="ja"
+>
+  <header class="page-header">
+    <p class="page-tag">信仰と生活 / 삶과 신앙</p>
+    <h1>日常と福音</h1>
+    <p class="page-desc">毎日の生活の中に宿る信仰の言葉。</p>
+  </header>
+
+  {posts.length === 0 ? (
+    <div class="empty-state">
+      <p>準備中です。まずは <a href="/story">はじめての方へ</a> をお読みください。</p>
+    </div>
+  ) : (
+    <ul class="post-list" role="list">
+      {posts.map((post) => (
+        <li>
+          <a href={`/faith-life/${post.slug}`} class="post-link" id={`faith-life-${post.slug}`}>
+            <h2 class="post-title">{post.data.title}</h2>
+            {post.data.description && <p class="post-desc">{post.data.description}</p>}
+            <time class="post-date" datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString('ja-JP')}
+            </time>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+
+  <div class="page-story-cta">
+    <a href="/story" id="faith-life-story-link">この記事を書いた人は？ →</a>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header { padding: 2rem 0; border-bottom: 1px solid #e7e5e4; margin-bottom: 2rem; }
+  .page-tag { font-size: 0.75rem; letter-spacing: 0.12em; color: #7c3aed; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .page-header h1 { font-size: 2rem; font-weight: 800; color: #1c1917; letter-spacing: -0.02em; }
+  .page-desc { color: #78716c; margin-top: 0.5rem; font-size: 0.9rem; }
+  .empty-state { padding: 3rem 0; color: #78716c; text-align: center; }
+  .post-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .post-link { display: block; padding: 1.25rem; border: 1px solid #e7e5e4; border-radius: 8px; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; background: #fff; }
+  .post-link:hover { border-color: #c4b5fd; box-shadow: 0 2px 8px rgba(124,58,237,0.07); text-decoration: none; }
+  .post-title { font-size: 1rem; font-weight: 600; color: #1c1917; margin-bottom: 0.25rem; }
+  .post-desc { font-size: 0.85rem; color: #78716c; margin-bottom: 0.25rem; line-height: 1.5; }
+  .post-date { font-size: 0.75rem; color: #a8a29e; }
+  .page-story-cta { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e7e5e4; text-align: center; font-size: 0.9rem; }
+</style>

@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('walk', ({ data }) => !data.draft);
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="歩みながら — GSFGrace"
+  description="東京での宣教の日々。日本橋から届く宣教日誌。"
+  lang="ja"
+>
+  <header class="page-header">
+    <p class="page-tag">歩みながら / 걸어가며</p>
+    <h1>東京での歩み</h1>
+    <p class="page-desc">日本橋を拠点にした宣教の日々の記録。キラーコンテンツ候補。</p>
+  </header>
+
+  {posts.length === 0 ? (
+    <div class="empty-state">
+      <p>準備中です。まずは <a href="/story">はじめての方へ</a> をお読みください。</p>
+    </div>
+  ) : (
+    <ul class="post-list" role="list">
+      {posts.map((post) => (
+        <li>
+          <a href={`/walk/${post.slug}`} class="post-link" id={`walk-${post.slug}`}>
+            {post.data.location && <span class="post-location">📍 {post.data.location}</span>}
+            <h2 class="post-title">{post.data.title}</h2>
+            {post.data.description && <p class="post-desc">{post.data.description}</p>}
+            <time class="post-date" datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString('ja-JP')}
+            </time>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+
+  <div class="page-story-cta">
+    <a href="/story" id="walk-story-link">この道を共に歩みませんか？ →</a>
+    <span class="story-separator"> · </span>
+    <a href="#footer-email" id="walk-newsletter-link">ニュースレター →</a>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header { padding: 2rem 0; border-bottom: 1px solid #e7e5e4; margin-bottom: 2rem; }
+  .page-tag { font-size: 0.75rem; letter-spacing: 0.12em; color: #7c3aed; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .page-header h1 { font-size: 2rem; font-weight: 800; color: #1c1917; letter-spacing: -0.02em; }
+  .page-desc { color: #78716c; margin-top: 0.5rem; font-size: 0.9rem; }
+  .empty-state { padding: 3rem 0; color: #78716c; text-align: center; }
+  .post-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .post-link { display: block; padding: 1.25rem; border: 1px solid #e7e5e4; border-radius: 8px; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; background: #fff; }
+  .post-link:hover { border-color: #c4b5fd; box-shadow: 0 2px 8px rgba(124,58,237,0.07); text-decoration: none; }
+  .post-location { font-size: 0.75rem; color: #78716c; margin-bottom: 0.25rem; display: block; }
+  .post-title { font-size: 1rem; font-weight: 600; color: #1c1917; margin-bottom: 0.25rem; }
+  .post-desc { font-size: 0.85rem; color: #78716c; margin-bottom: 0.25rem; line-height: 1.5; }
+  .post-date { font-size: 0.75rem; color: #a8a29e; }
+  .page-story-cta { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e7e5e4; text-align: center; font-size: 0.9rem; }
+  .story-separator { color: #d6d3d1; }
+</style>
