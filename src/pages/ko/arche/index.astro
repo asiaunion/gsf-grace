@@ -1,0 +1,57 @@
+---
+/**
+ * /ko/arche/index.astro — ἀρχή KO (준비중)
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="ἀρχή — GSFGrace"
+  description="깊은 지적 탐구를 위한 공간. 준비 중입니다."
+  lang="ko"
+>
+  <div class="arche-page">
+    <header class="page-header">
+      <p class="page-tag">준비 중 / 準備中</p>
+      <h1 class="arche-title">ἀρχή</h1>
+      <p class="arche-subtitle">아르케 — 시작 / 기원</p>
+    </header>
+
+    <div class="coming-soon-body">
+      <p class="coming-text">
+        깊은 질문을 위한 공간을 준비 중입니다.<br />
+        신학, 철학, 문화 — 신앙의 지적 깊이로.
+      </p>
+
+      <div class="newsletter-invite">
+        <p>준비가 되면 알려드리겠습니다. 뉴스레터에 등록해 주세요.</p>
+        <form action="#" method="POST" class="inline-form" aria-label="아르케 뉴스레터">
+          <input type="email" name="email" placeholder="이메일 주소" required id="arche-email" />
+          <button type="submit" id="arche-subscribe-btn">등록하기</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="page-story-cta">
+      <a href="/ko/story" id="arche-story-link">GSFGrace에 대하여 →</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .arche-page { padding: 2rem 0; text-align: center; }
+  .page-header { padding: 3rem 0 2rem; }
+  .page-tag { font-size: 0.72rem; letter-spacing: 0.18em; color: var(--color-accent); font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; font-family: var(--font-sans); }
+  .arche-title { font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; color: var(--color-text); letter-spacing: -0.04em; font-style: italic; font-family: var(--font-serif); }
+  .arche-subtitle { font-size: 1rem; color: var(--color-muted); margin-top: 0.5rem; font-family: var(--font-sans); }
+  .coming-soon-body { max-width: 480px; margin: 2rem auto; }
+  .coming-text { font-size: 1rem; color: var(--color-muted); line-height: 1.8; margin-bottom: 2rem; font-family: var(--font-sans); }
+  .newsletter-invite { background: var(--color-accent-soft); border: 1px solid var(--color-line); border-radius: 4px; padding: 1.5rem; }
+  .newsletter-invite p { font-size: 0.9rem; color: var(--color-muted); margin-bottom: 1rem; font-family: var(--font-sans); }
+  .inline-form { display: flex; gap: 0.5rem; }
+  .inline-form input { flex: 1; padding: 0.5rem 0.75rem; border: 1px solid var(--color-line); border-radius: 4px; font-size: 0.875rem; outline: none; background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); }
+  .inline-form input:focus { border-color: var(--color-accent); }
+  .inline-form button { padding: 0.5rem 1rem; background: var(--color-warm); color: #fff; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; transition: background 0.15s; font-family: var(--font-sans); }
+  .inline-form button:hover { background: #9a7349; }
+  .page-story-cta { margin-top: 3rem; font-size: 0.9rem; font-family: var(--font-sans); }
+</style>

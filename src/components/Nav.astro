@@ -1,43 +1,50 @@
 ---
 /**
- * Nav.astro
- * GSFGrace 네비게이션 — STEP 2: olive-earth 색 변수화
+ * Nav.astro — STEP 1+2+3
+ * STEP 1: 메뉴 5개 (ホーム/信仰と生活 제거, 日本橋エッセイ 반영, arche 괄호 제거)
+ * STEP 2: 로고 GSFGrace = olive색, 박스 없음
+ * STEP 3: 언어 스위처 — 데스크톱 우측 끝, 모바일 항상 노출
  */
-interface Props {
-  lang?: 'ja' | 'ko';
-}
+const { lang = 'ja' } = Astro.props as { lang?: 'ja' | 'ko' };
 
-const { lang = 'ja' } = Astro.props;
+// 현재 경로에서 /ko 접두사 제거한 순수 경로
+const rawPath = Astro.url.pathname.replace(/^\/ko/, '') || '/';
+const jaUrl = rawPath;
+const koUrl = '/ko' + (rawPath === '/' ? '' : rawPath);
+
+const currentPath = Astro.url.pathname;
 
 const navItems = lang === 'ja'
   ? [
-      { href: '/', label: 'ホーム' },
-      { href: '/story', label: 'はじめての方へ', highlight: true },
-      { href: '/devotion', label: '今日のみことば' },
-      { href: '/faith-life', label: '信仰と生活' },
-      { href: '/walk', label: '歩みながら' },
-      { href: '/qa', label: '疑問に答える' },
-      { href: '/arche', label: 'ἀρχή（準備中）', comingSoon: true },
+      { href: '/story',   label: 'はじめての方へ', highlight: true },
+      { href: '/qa',      label: '疑問に答える' },
+      { href: '/devotion',label: '今日のみことば' },
+      { href: '/walk',    label: '日本橋エッセイ' },
+      { href: '/arche',   label: 'ἀρχή', comingSoon: true },
     ]
   : [
-      { href: '/', label: '홈' },
-      { href: '/story', label: '처음 오셨나요?', highlight: true },
-      { href: '/devotion', label: '오늘의 묵상' },
-      { href: '/faith-life', label: '삶과 신앙' },
-      { href: '/walk', label: '걸어가며' },
-      { href: '/qa', label: '궁금한 질문' },
-      { href: '/arche', label: 'アルケ（준비중）', comingSoon: true },
+      { href: '/ko/story',   label: '처음 오셨나요?', highlight: true },
+      { href: '/ko/qa',      label: '궁금한 질문' },
+      { href: '/ko/devotion',label: '오늘의 묵상' },
+      { href: '/ko/walk',    label: '니혼바시 에세이' },
+      { href: '/ko/arche',   label: 'ἀρχή', comingSoon: true },
     ];
-
-const currentPath = Astro.url.pathname;
 ---
 
 <nav class="site-nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="/" class="nav-brand" aria-label="GSFGrace Home">
+    <!-- STEP 2: 로고 — olive 텍스트, 박스 없음 -->
+    <a href={lang === 'ko' ? '/ko' : '/'} class="nav-brand" aria-label="GSFGrace Home">
       <span class="brand-name">GSFGrace</span>
       <span class="brand-sub">Hodos Tokyo</span>
     </a>
+
+    <!-- STEP 3: 언어 스위처 — 모바일에서도 항상 노출 (햄버거 밖) -->
+    <div class="lang-switch" role="group" aria-label="言語 / 언어">
+      <a href={jaUrl} class:list={['lang-opt', { active: lang === 'ja' }]} lang="ja" hreflang="ja">日本語</a>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <a href={koUrl} class:list={['lang-opt', { active: lang === 'ko' }]} lang="ko" hreflang="ko">한국어</a>
+    </div>
 
     <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="メニューを開く">
       <span></span>
@@ -52,7 +59,7 @@ const currentPath = Astro.url.pathname;
             href={item.href}
             class:list={[
               'nav-link',
-              { active: currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) },
+              { active: currentPath === item.href || (currentPath.startsWith(item.href) && item.href !== '/' && item.href !== '/ko') },
               { highlight: item.highlight },
               { 'coming-soon': item.comingSoon },
             ]}
@@ -82,10 +89,11 @@ const currentPath = Astro.url.pathname;
     padding: 0 1.5rem;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.25rem;
     height: 60px;
   }
 
+  /* STEP 2: 로고 olive 텍스트 */
   .nav-brand {
     display: flex;
     flex-direction: column;
@@ -97,7 +105,7 @@ const currentPath = Astro.url.pathname;
   .brand-name {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--color-accent);   /* ← olive #5C6B57 */
     letter-spacing: -0.02em;
     font-family: var(--font-serif);
   }
@@ -109,18 +117,54 @@ const currentPath = Astro.url.pathname;
     font-family: var(--font-sans);
   }
 
+  /* STEP 3: 언어 스위처 */
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .lang-opt {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-family: var(--font-sans);
+    white-space: nowrap;
+  }
+
+  .lang-opt:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .lang-opt.active {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .lang-sep {
+    font-size: 0.72rem;
+    color: var(--color-line);
+    user-select: none;
+  }
+
+  /* 메뉴 */
   .nav-menu {
     display: flex;
     list-style: none;
-    gap: 0.25rem;
+    gap: 0.2rem;
+    flex-wrap: nowrap;
+    order: -1;          /* 로고 다음, 스위처 앞에 */
     flex: 1;
-    flex-wrap: wrap;
   }
 
   .nav-link {
     display: inline-block;
-    padding: 0.35rem 0.65rem;
-    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.82rem;
     color: var(--color-muted);
     border-radius: 4px;
     transition: background 0.15s, color 0.15s;
@@ -157,6 +201,7 @@ const currentPath = Astro.url.pathname;
     font-style: italic;
   }
 
+  /* 햄버거 */
   .nav-toggle {
     display: none;
     flex-direction: column;
@@ -165,7 +210,7 @@ const currentPath = Astro.url.pathname;
     border: none;
     cursor: pointer;
     padding: 8px;
-    margin-left: auto;
+    flex-shrink: 0;
   }
 
   .nav-toggle span {
@@ -177,12 +222,30 @@ const currentPath = Astro.url.pathname;
     transition: transform 0.2s;
   }
 
+  /* ── 모바일 ── */
   @media (max-width: 768px) {
+    .nav-inner {
+      /* 로고 | 스위처 | 햄버거 순 */
+      flex-wrap: nowrap;
+    }
+
     .nav-toggle {
       display: flex;
     }
 
+    /* 스위처: 햄버거 밖에 항상 보임 — order로 햄버거 왼쪽에 고정 */
+    .lang-switch {
+      order: 1;
+      margin-left: auto;
+    }
+
+    .nav-toggle {
+      order: 2;
+      margin-left: 0.5rem;
+    }
+
     .nav-menu {
+      order: 10;
       display: none;
       position: absolute;
       top: 60px;

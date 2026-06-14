@@ -1,0 +1,100 @@
+---
+/**
+ * /ko/story/index.astro — 처음 오셨나요? KO
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PathLine from '../../../components/PathLine.astro';
+---
+
+<BaseLayout
+  title="처음 오셨나요? — GSFGrace"
+  description="왜 도쿄에서? 니혼바시에서 한 사람의 이웃을 만나기 위해."
+  lang="ko"
+>
+  <article class="story-page">
+    <header class="story-header">
+      <p class="story-tag">처음 오셨나요?</p>
+      <h1 class="story-title">왜, 이곳이 존재하는가.</h1>
+    </header>
+
+    <PathLine />
+
+    <section class="story-body">
+      <p class="story-lead">
+        도쿄는 세계에서 가장 고독한 도시 중 하나입니다.<br />
+        3,700만 명이 살아가지만, 여전히 많은 이가<br />
+        홀로 살고, 홀로 떠나갑니다.
+      </p>
+
+      <p>
+        니혼바시(日本橋) — '일본의 다리'.<br />
+        에도 시대부터, 일본의 모든 길이 이곳에서 시작되었습니다.
+      </p>
+
+      <p>
+        우리는 이 자리에서<br />
+        하나의 '생명의 다리'를 놓고자 합니다.
+      </p>
+
+      <blockquote class="story-quote">
+        <p>"가서 너도 이와 같이 하라"</p>
+        <cite>— 누가복음 10:37</cite>
+      </blockquote>
+
+      <p>
+        저는 승주(承柱), 한국 출신 목사입니다.<br />
+        하나님의 부르심에 따라 아내 마유미와 함께 도쿄로 이주했습니다.<br />
+        우리가 지향하는 것은 <strong>Nihonbashi Grace Oikos</strong>—<br />
+        니혼바시에 뿌리를 둔 작은 복음의 공동체입니다.
+      </p>
+    </section>
+
+    <PathLine />
+
+    <section class="story-cta">
+      <div class="cta-grid">
+        <div class="cta-card" id="story-newsletter-cta">
+          <h2>도쿄에서 보내는 편지</h2>
+          <p>새로운 글과 도쿄에서의 선교 걸음을, 가끔 전해 드립니다.</p>
+          <form action="#" method="POST" class="inline-form" aria-label="뉴스레터 신청">
+            <input type="email" name="email" placeholder="이메일 주소" required id="story-email-input" />
+            <button type="submit" id="story-subscribe-btn">편지 받기</button>
+          </form>
+        </div>
+        <div class="cta-card prayer-card" id="story-prayer-cta">
+          <h2>기도로 함께</h2>
+          <p class="prayer-text">
+            도쿄를 위해 기도해 주세요.<br />
+            니혼바시에 복음의 가족이 세워지도록.
+          </p>
+        </div>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .story-page { padding: 2rem 0; }
+  .story-header { text-align: center; padding: 2rem 0 2.5rem; margin-bottom: 2rem; }
+  .story-tag { font-size: 0.72rem; letter-spacing: 0.18em; color: var(--color-accent); font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; font-family: var(--font-sans); }
+  .story-title { font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 700; color: var(--color-text); letter-spacing: -0.02em; line-height: 1.4; font-family: var(--font-serif); }
+  .story-body { max-width: 640px; margin: 2rem auto; }
+  .story-lead { font-size: 1.05rem; font-family: var(--font-serif); color: var(--color-text); margin-bottom: 1.75rem; line-height: 1.9; }
+  .story-body p { color: var(--color-text); margin-bottom: 1.25rem; font-size: 1rem; line-height: 1.85; font-family: var(--font-sans); }
+  .story-quote { border-left: 2px solid var(--color-accent); padding: 1rem 1.5rem; margin: 2rem 0; background: var(--color-accent-soft); border-radius: 0 2px 2px 0; }
+  .story-quote p { font-size: 1.05rem; font-style: italic; color: var(--color-text); margin-bottom: 0.5rem; font-family: var(--font-serif); }
+  .story-quote cite { font-size: 0.85rem; color: var(--color-accent); font-style: normal; font-family: var(--font-sans); }
+  .story-cta { margin-top: 3rem; padding-top: 2rem; }
+  .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .cta-card { padding: 1.5rem; border: 1px solid var(--color-line); border-radius: 4px; background: var(--color-surface); }
+  .cta-card h2 { font-size: 0.88rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.5rem; font-family: var(--font-serif); }
+  .cta-card p { font-size: 0.85rem; color: var(--color-muted); margin-bottom: 1rem; line-height: 1.7; font-family: var(--font-sans); }
+  .inline-form { display: flex; flex-direction: column; gap: 0.5rem; }
+  .inline-form input { padding: 0.5rem 0.75rem; border: 1px solid var(--color-line); border-radius: 4px; font-size: 0.875rem; outline: none; background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); }
+  .inline-form input:focus { border-color: var(--color-accent); }
+  .inline-form button { padding: 0.5rem; background: var(--color-warm); color: #fff; border: none; border-radius: 4px; font-weight: 600; font-size: 0.875rem; cursor: pointer; transition: background 0.15s; font-family: var(--font-sans); }
+  .inline-form button:hover { background: #9a7349; }
+  .prayer-card { background: var(--color-accent-soft); border-color: var(--color-accent-soft); }
+  .prayer-text { font-style: italic; line-height: 1.85 !important; }
+  @media (max-width: 600px) { .cta-grid { grid-template-columns: 1fr; } }
+</style>

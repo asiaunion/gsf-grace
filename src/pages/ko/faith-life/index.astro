@@ -1,0 +1,62 @@
+---
+/**
+ * /ko/faith-life/index.astro — 삶과 신앙 KO
+ * 메뉴에는 없지만 페이지는 보존 (지시서 STEP 4)
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('faith-life', ({ data }) => !data.draft);
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="삶과 신앙 — GSFGrace"
+  description="일상 속에서 발견하는 복음의 형태. 에세이·칼럼."
+  lang="ko"
+>
+  <header class="page-header">
+    <p class="page-tag">삶과 신앙 / 信仰と生活</p>
+    <h1>일상과 복음</h1>
+    <p class="page-desc">매일의 생활 속에 깃든 신앙의 언어.</p>
+  </header>
+
+  {posts.length === 0 ? (
+    <div class="empty-state">
+      <p>준비 중입니다. 먼저 <a href="/ko/story">처음 오셨나요?</a>를 읽어 주세요.</p>
+    </div>
+  ) : (
+    <ul class="post-list" role="list">
+      {posts.map((post) => (
+        <li>
+          <a href={`/faith-life/${post.slug}`} class="post-link" id={`faith-life-${post.slug}`}>
+            <h2 class="post-title">{post.data.title}</h2>
+            {post.data.description && <p class="post-desc">{post.data.description}</p>}
+            <time class="post-date" datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString('ko-KR')}
+            </time>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+
+  <div class="page-story-cta">
+    <a href="/ko/story" id="faith-life-story-link">이 글을 쓴 사람은? →</a>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header { padding: 2rem 0; border-bottom: 1px solid var(--color-line); margin-bottom: 2rem; }
+  .page-tag { font-size: 0.72rem; letter-spacing: 0.15em; color: var(--color-accent); font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; font-family: var(--font-sans); }
+  .page-header h1 { font-size: 2rem; font-weight: 700; color: var(--color-text); letter-spacing: -0.02em; font-family: var(--font-serif); }
+  .page-desc { color: var(--color-muted); margin-top: 0.5rem; font-size: 0.9rem; font-family: var(--font-sans); }
+  .empty-state { padding: 3rem 0; color: var(--color-muted); text-align: center; font-family: var(--font-sans); }
+  .post-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .post-link { display: block; padding: 1.25rem; border: 1px solid var(--color-line); border-radius: 4px; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; background: var(--color-surface); }
+  .post-link:hover { border-color: var(--color-accent-soft); box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-decoration: none; }
+  .post-title { font-size: 1rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem; font-family: var(--font-serif); }
+  .post-desc { font-size: 0.85rem; color: var(--color-muted); margin-bottom: 0.25rem; line-height: 1.5; font-family: var(--font-sans); }
+  .post-date { font-size: 0.75rem; color: #a8a29e; font-family: var(--font-sans); }
+  .page-story-cta { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--color-line); text-align: center; font-size: 0.9rem; font-family: var(--font-sans); }
+</style>

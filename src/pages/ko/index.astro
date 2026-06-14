@@ -1,0 +1,199 @@
+---
+/**
+ * /ko/index.astro — GSFGrace 홈페이지 KO
+ * STEP 4+6: KO 라우팅 + 한국어 카피
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PathLine from '../../components/PathLine.astro';
+---
+
+<BaseLayout
+  title="GSFGrace — Hodos Tokyo"
+  description="ὁδός. 道. 길. 요14:6 — 생명을 받고, 함께 걷다."
+  lang="ko"
+>
+  <!-- Hero -->
+  <section class="hero">
+    <p class="hero-tag">GOOD SAMARITAN FLOURISHING</p>
+    <h1 class="hero-title">
+      Receive Life.<br />Walk Together.
+    </h1>
+    <p class="hero-tagline">
+      생명을 받고, 함께 걷다.
+    </p>
+    <p class="hero-eng">낯선 이에서 이웃으로. / 이웃에서 가족으로.</p>
+    <p class="hero-verse">"내가 곧 길이요 진리요 생명이니" — 요한복음 14:6</p>
+    <div class="hero-actions">
+      <a href="/ko/story" class="btn-primary" id="hero-story-cta">처음 오셨나요? →</a>
+      <a href="/ko/qa" class="btn-secondary" id="hero-qa-link">궁금한 질문</a>
+    </div>
+  </section>
+
+  <PathLine />
+
+  <!-- About 2단 -->
+  <section class="section-about" aria-labelledby="about-heading">
+    <div class="about-grid">
+      <figure class="about-photo">
+        <img
+          src="/images/nihonbashi-placeholder.svg"
+          alt="니혼바시"
+          width="400"
+          height="250"
+          loading="lazy"
+          class="photo-img"
+        />
+        <figcaption class="photo-caption">— 사진 준비 중입니다</figcaption>
+      </figure>
+      <div class="about-text">
+        <p class="about-label">ABOUT GSFGRACE</p>
+        <p class="about-body">
+          도쿄 니혼바시에서,<br />
+          은혜 안에서 함께 걷기 위해.
+        </p>
+        <p class="about-sub">
+          기독교를 향한 질문. 신앙과 일상.<br />
+          도쿄에서 복음을 살아가는, 하나하나의 걸음.
+        </p>
+        <p class="about-sub">
+          우리는 '독자'를 늘리기 위해서가 아니라,<br />
+          한 사람의 이웃을 만나기 위해 여기 있습니다.
+        </p>
+        <a href="/ko/story" class="about-link" id="about-story-link">우리에 대하여 →</a>
+      </div>
+    </div>
+  </section>
+
+  <PathLine />
+
+  <!-- 콘텐츠 링크 카드 -->
+  <section class="section-links" aria-label="콘텐츠 링크">
+    <div class="link-cards">
+      <a href="/ko/qa" class="link-card" id="home-qa-card">
+        <span class="link-card-icon">❓</span>
+        <span class="link-card-label">궁금한 질문</span>
+        <span class="link-card-desc">하나님이 고통을 허락하시는 이유? 과학과 신앙은 모순인가?</span>
+      </a>
+      <a href="/ko/devotion" class="link-card" id="home-devotion-card">
+        <span class="link-card-icon">📖</span>
+        <span class="link-card-label">오늘의 묵상</span>
+        <span class="link-card-desc">매일의 짧은 성경 묵상</span>
+      </a>
+      <a href="/ko/walk" class="link-card" id="home-walk-card">
+        <span class="link-card-icon">🚶</span>
+        <span class="link-card-label">니혼바시 에세이</span>
+        <span class="link-card-desc">도쿄에서의 선교 일상 기록</span>
+      </a>
+      <a href="/ko/faith-life" class="link-card" id="home-faith-card">
+        <span class="link-card-icon">✨</span>
+        <span class="link-card-label">삶과 신앙</span>
+        <span class="link-card-desc">일상 속에서 발견하는 복음의 형태</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    padding: 4rem 0 3rem;
+    text-align: center;
+  }
+  .hero-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    color: var(--color-accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-sans);
+  }
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-serif);
+  }
+  .hero-tagline {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-family: var(--font-serif);
+    color: var(--color-text);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+  }
+  .hero-eng {
+    font-size: 0.85rem;
+    font-family: var(--font-sans);
+    color: var(--color-muted);
+    margin-bottom: 1.25rem;
+  }
+  .hero-verse {
+    font-size: 0.88rem;
+    font-family: var(--font-serif);
+    color: var(--color-muted);
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background: var(--color-accent);
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+    font-family: var(--font-sans);
+  }
+  .btn-primary:hover { background: var(--color-accent-deep); transform: translateY(-1px); text-decoration: none; }
+  .btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background: transparent;
+    color: var(--color-muted);
+    border: 1.5px solid var(--color-line);
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: var(--font-sans);
+  }
+  .btn-secondary:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; }
+
+  /* ── About ── */
+  .section-about { padding: 3rem 0; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+  .about-photo { margin: 0; }
+  .photo-img { width: 100%; height: auto; filter: grayscale(1); opacity: 0.9; display: block; border-radius: 2px; }
+  .photo-caption { font-size: 0.72rem; color: var(--color-muted); margin-top: 0.5rem; font-style: italic; font-family: var(--font-sans); }
+  .about-label { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--color-muted); font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; font-family: var(--font-sans); }
+  .about-body { font-size: 1.05rem; font-family: var(--font-serif); color: var(--color-text); line-height: 1.9; margin-bottom: 1.25rem; }
+  .about-sub { font-size: 0.88rem; color: var(--color-muted); line-height: 1.85; margin-bottom: 1rem; font-family: var(--font-sans); }
+  .about-link { font-size: 0.88rem; color: var(--color-accent); font-weight: 600; text-decoration: none; font-family: var(--font-sans); }
+  .about-link:hover { text-decoration: underline; }
+
+  /* ── Link Cards ── */
+  .section-links { padding: 1rem 0 2rem; }
+  .link-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .link-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.25rem; border: 1px solid var(--color-line); border-radius: 4px; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s; background: var(--color-surface); }
+  .link-card:hover { border-color: var(--color-accent-soft); box-shadow: 0 4px 12px rgba(0,0,0,0.05); transform: translateY(-2px); text-decoration: none; }
+  .link-card-icon { font-size: 1.5rem; }
+  .link-card-label { font-size: 0.95rem; font-weight: 700; color: var(--color-text); font-family: var(--font-serif); }
+  .link-card-desc { font-size: 0.8rem; color: var(--color-muted); line-height: 1.5; font-family: var(--font-sans); }
+
+  @media (max-width: 600px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .link-cards { grid-template-columns: 1fr; }
+  }
+</style>
