@@ -76,30 +76,42 @@ import PathLine from '../../components/PathLine.astro';
 </BaseLayout>
 
 <style>
-  /* ── Hero — STEP 4: 수솠화 배경 + 오버레이 ── */
+  /* ── Hero — STEP 4: 100vw 풀블리드 ── */
   .hero {
     position: relative;
-    padding: 5rem 1.5rem 4rem;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 6rem 1.5rem 5rem;
     text-align: center;
     background-image: url('/images/hero-nihonbashi.webp');
     background-size: cover;
-    background-position: center right;
+    background-position: center;
     overflow: hidden;
   }
-  /* 가독성 오버레이 — STEP 4-2: 중앙값 상향 */
+  /* 가독성 오버레이 — 중앙 집중형 (radial) */
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(250, 248, 243, 0.93) 0%,
-      rgba(250, 248, 243, 0.82) 50%,
-      rgba(250, 248, 243, 0.45) 100%
+    background: radial-gradient(
+      ellipse 60% 80% at center,
+      rgba(250,248,243,0.92) 0%,
+      rgba(250,248,243,0.80) 55%,
+      rgba(250,248,243,0.55) 100%
     );
     z-index: 0;
   }
-  .hero > * { position: relative; z-index: 1; }
+  /* Hero 자식 1080px 제한 */
+  .hero > * {
+    position: relative;
+    z-index: 1;
+    max-width: var(--width-container);
+    margin-left: auto;
+    margin-right: auto;
+  }
   .hero-tag {
     font-size: 0.72rem;
     letter-spacing: 0.25em;
@@ -175,8 +187,8 @@ import PathLine from '../../components/PathLine.astro';
   }
   .btn-secondary:hover { background: rgba(255,255,255,0.9); border-color: var(--color-accent-deep); color: var(--color-accent-deep); text-decoration: none; }
 
-  /* ── About — STEP 3: 텍스트 단독 ── */
-  .section-about { padding: 3rem 0; max-width: 640px; margin: 0 auto; }
+  /* ── About — STEP 5: 720px ── */
+  .section-about { padding: 3rem 0; max-width: var(--width-text); margin: 0 auto; }
   /* .about-grid, .about-photo, .photo-img, .photo-caption — 주석 보존 (실사진 준비 시 복원용) */
   .about-label { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--color-muted); font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; font-family: var(--font-sans); }
   .about-body { font-size: 1.05rem; font-family: var(--font-serif); color: var(--color-text); line-height: 1.9; margin-bottom: 1.25rem; }
@@ -184,8 +196,8 @@ import PathLine from '../../components/PathLine.astro';
   .about-link { font-size: 0.88rem; color: var(--color-accent); font-weight: 600; text-decoration: none; font-family: var(--font-sans); }
   .about-link:hover { text-decoration: underline; }
 
-  /* ── Link Cards — 3열 ── */
-  .section-links { padding: 1rem 0 2rem; }
+  /* ── Link Cards — STEP 5: 720px + 3열 ── */
+  .section-links { padding: 1rem 0 2rem; max-width: var(--width-text); margin: 0 auto; }
   .link-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
   .link-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.25rem; border: 1px solid var(--color-line); border-radius: 4px; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s; background: var(--color-surface); }
   .link-card:hover { border-color: var(--color-accent-soft); box-shadow: 0 4px 12px rgba(0,0,0,0.05); transform: translateY(-2px); text-decoration: none; }
@@ -194,11 +206,10 @@ import PathLine from '../../components/PathLine.astro';
   .link-card-desc { font-size: 0.8rem; color: var(--color-muted); line-height: 1.5; font-family: var(--font-sans); }
 
   @media (max-width: 768px) {
-    .hero { background-position: center; }
-    .hero::before { background: rgba(250, 248, 243, 0.86); }
+    .hero { padding: 4rem 1.25rem 3.5rem; }
+    .hero::before { background: rgba(250, 248, 243, 0.88); }
   }
   @media (max-width: 600px) {
-    .about-grid { grid-template-columns: 1fr; }
     .link-cards { grid-template-columns: 1fr; }
   }
 </style>

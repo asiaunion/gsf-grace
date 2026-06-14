@@ -68,15 +68,15 @@ const koHref = new URL('/ko' + (hrefPath === '/' ? '' : hrefPath), Astro.site).h
     padding: 0;
   }
 
-  /* STEP 1: olive-earth 토큰 (violet 계열 전면 교체) */
+  /* STEP 1: olive-earth 토큰 (지시서3 폭 변수 + 색 강화) */
   :root {
     /* Base */
     --color-bg:          #FAF8F3;
     --color-surface:     #FFFFFF;
-    --color-text:        #292524;
-    --color-muted:       #78716C;
+    --color-text:        #1C1A17;   /* #292524 → 더 진하게 */
+    --color-muted:       #57534E;   /* #78716C → 확실히 진하게 */
 
-    /* Accent — 길/올리브/긍휼 */
+    /* Accent — 길/올리브/긍휴 */
     --color-accent:      #5C6B57;
     --color-accent-deep: #48543F;
     --color-accent-soft: #EBEDE7;
@@ -89,6 +89,14 @@ const koHref = new URL('/ko' + (hrefPath === '/' ? '' : hrefPath), Astro.site).h
     /* Typography */
     --font-sans:  'Noto Sans JP', system-ui, sans-serif;
     --font-serif: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', Georgia, serif;
+
+    /* Layout 폭 변수 */
+    --width-container: 1080px;   /* Nav·섹션 기준 */
+    --width-text:       720px;   /* 텍스트 칼럼 */
+  }
+
+  html, body {
+    overflow-x: hidden;   /* 100vw 풀블리드 가로 스크롤 방지 */
   }
 
   html {
@@ -100,9 +108,9 @@ const koHref = new URL('/ko' + (hrefPath === '/' ? '' : hrefPath), Astro.site).h
 
   main {
     min-height: 70vh;
-    max-width: 720px;
+    max-width: var(--width-container);   /* 720 → 1080px */
     margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 0 1.5rem;   /* 상단 padding 제거 — Hero가 담당 */
   }
 
   a {

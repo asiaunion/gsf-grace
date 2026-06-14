@@ -76,33 +76,44 @@ import PathLine from '../components/PathLine.astro';
 </BaseLayout>
 
 <style>
-  /* ── Hero — STEP 4: 수솠화 배경 + 오버레이 ── */
+  /* ── Hero — STEP 4: 100vw 풀블리드 ── */
   .hero {
     position: relative;
-    padding: 5rem 1.5rem 4rem;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 6rem 1.5rem 5rem;
     text-align: center;
     background-image: url('/images/hero-nihonbashi.webp');
     background-size: cover;
-    background-position: center right;
+    background-position: center;
     overflow: hidden;
   }
 
-  /* 가독성 오버레이 — STEP 4-2: 중앙값 상향 */
+  /* 가독성 오버레이 — 중앙 집중형 (radial) */
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(250, 248, 243, 0.93) 0%,
-      rgba(250, 248, 243, 0.82) 50%,
-      rgba(250, 248, 243, 0.45) 100%
+    background: radial-gradient(
+      ellipse 60% 80% at center,
+      rgba(250,248,243,0.92) 0%,
+      rgba(250,248,243,0.80) 55%,
+      rgba(250,248,243,0.55) 100%
     );
     z-index: 0;
   }
 
-  /* 모든 자식을 오버레이 위에 */
-  .hero > * { position: relative; z-index: 1; }
+  /* Hero 내에서 자식을 1080px로 제한 */
+  .hero > * {
+    position: relative;
+    z-index: 1;
+    max-width: var(--width-container);
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .hero-tag {
     font-size: 0.72rem;
@@ -199,10 +210,10 @@ import PathLine from '../components/PathLine.astro';
     text-decoration: none;
   }
 
-  /* ── About — STEP 3: 텍스트 단독, max-width 제한 ── */
+  /* ── About — STEP 5: 720px 텍스트 칼럼 ── */
   .section-about {
     padding: 3rem 0;
-    max-width: 640px;
+    max-width: var(--width-text);   /* 640 → 720px 변수화 */
     margin: 0 auto;
   }
 
@@ -251,9 +262,11 @@ import PathLine from '../components/PathLine.astro';
     text-decoration: underline;
   }
 
-  /* ── Link Cards — 3열 ── */
+  /* ── Link Cards — STEP 5: 720px + 3열 ── */
   .section-links {
     padding: 1rem 0 2rem;
+    max-width: var(--width-text);   /* 720px */
+    margin: 0 auto;
   }
 
   .link-cards {
@@ -300,19 +313,15 @@ import PathLine from '../components/PathLine.astro';
   }
 
   @media (max-width: 768px) {
-    /* 모바일 Hero 오버레이: 전체 균일하게 */
     .hero {
-      background-position: center;
+      padding: 4rem 1.25rem 3.5rem;
     }
     .hero::before {
-      background: rgba(250, 248, 243, 0.86);
+      background: rgba(250, 248, 243, 0.88);   /* 모바일: 균일 오버레이 */
     }
   }
 
   @media (max-width: 600px) {
-    .about-grid {
-      grid-template-columns: 1fr;
-    }
     .link-cards {
       grid-template-columns: 1fr;
     }
