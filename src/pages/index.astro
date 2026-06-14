@@ -9,7 +9,7 @@ import PathLine from '../components/PathLine.astro';
 
 <BaseLayout
   title="GSFGrace — Hodos Tokyo"
-  description="ὁδός. 道. 길. 요14:6 — Receive Life. Become Mercy."
+  description="ὁδός. 道. 길. ヨハネ14:6 — Receive Life. Walk Together."
   lang="ja"
 >
   <!-- Hero -->
@@ -66,7 +66,7 @@ import PathLine from '../components/PathLine.astro';
 
   <PathLine />
 
-  <!-- 콘텐츠 링크 카드 -->
+  <!-- 콘텐츠 링크 카드 -- 신앙과생활 제거, 니혼바시 에세이 통일 -->
   <section class="section-links" aria-label="コンテンツへのリンク">
     <div class="link-cards">
       <a href="/qa" class="link-card" id="home-qa-card">
@@ -81,24 +81,41 @@ import PathLine from '../components/PathLine.astro';
       </a>
       <a href="/walk" class="link-card" id="home-walk-card">
         <span class="link-card-icon">🚶</span>
-        <span class="link-card-label">歩みながら</span>
+        <span class="link-card-label">日本橋エッセイ</span>
         <span class="link-card-desc">東京での宣教の日々の記録</span>
-      </a>
-      <a href="/faith-life" class="link-card" id="home-faith-card">
-        <span class="link-card-icon">✨</span>
-        <span class="link-card-label">信仰と生活</span>
-        <span class="link-card-desc">日常の中に見つける福音のかたち</span>
       </a>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* ── Hero ── */
+  /* ── Hero — STEP 4: 수솠화 배경 + 오버레이 ── */
   .hero {
-    padding: 4rem 0 3rem;
+    position: relative;
+    padding: 5rem 1.5rem 4rem;
     text-align: center;
+    background-image: url('/images/hero-nihonbashi.webp');
+    background-size: cover;
+    background-position: center right;
+    overflow: hidden;
   }
+
+  /* 가독성 오버레이 — 왼쪽(텍스트) 진하게, 오른쪽(그림) 투명 */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(250, 248, 243, 0.91) 0%,
+      rgba(250, 248, 243, 0.75) 45%,
+      rgba(250, 248, 243, 0.28) 100%
+    );
+    z-index: 0;
+  }
+
+  /* 모든 자식을 오버레이 위에 */
+  .hero > * { position: relative; z-index: 1; }
 
   .hero-tag {
     font-size: 0.72rem;
@@ -262,14 +279,14 @@ import PathLine from '../components/PathLine.astro';
     text-decoration: underline;
   }
 
-  /* ── Link Cards ── */
+  /* ── Link Cards — 3열 ── */
   .section-links {
     padding: 1rem 0 2rem;
   }
 
   .link-cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
 
@@ -308,6 +325,16 @@ import PathLine from '../components/PathLine.astro';
     color: var(--color-muted);
     line-height: 1.5;
     font-family: var(--font-sans);
+  }
+
+  @media (max-width: 768px) {
+    /* 모바일 Hero 오버레이: 전체 균일하게 */
+    .hero {
+      background-position: center;
+    }
+    .hero::before {
+      background: rgba(250, 248, 243, 0.86);
+    }
   }
 
   @media (max-width: 600px) {

@@ -9,7 +9,7 @@ import PathLine from '../../components/PathLine.astro';
 
 <BaseLayout
   title="GSFGrace — Hodos Tokyo"
-  description="ὁδός. 道. 길. 요14:6 — 생명을 받고, 함께 걷다."
+  description="ὁδός. 道. 길. 요한복음 14:6 — 생명을 받고, 함께 걷다."
   lang="ko"
 >
   <!-- Hero -->
@@ -66,7 +66,7 @@ import PathLine from '../../components/PathLine.astro';
 
   <PathLine />
 
-  <!-- 콘텐츠 링크 카드 -->
+  <!-- 콘텐츠 링크 카드 -- 삶과신앙 제거, 니혼바시 에세이 통일 -->
   <section class="section-links" aria-label="콘텐츠 링크">
     <div class="link-cards">
       <a href="/ko/qa" class="link-card" id="home-qa-card">
@@ -84,21 +84,34 @@ import PathLine from '../../components/PathLine.astro';
         <span class="link-card-label">니혼바시 에세이</span>
         <span class="link-card-desc">도쿄에서의 선교 일상 기록</span>
       </a>
-      <a href="/ko/faith-life" class="link-card" id="home-faith-card">
-        <span class="link-card-icon">✨</span>
-        <span class="link-card-label">삶과 신앙</span>
-        <span class="link-card-desc">일상 속에서 발견하는 복음의 형태</span>
-      </a>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* ── Hero ── */
+  /* ── Hero — STEP 4: 수솠화 배경 + 오버레이 ── */
   .hero {
-    padding: 4rem 0 3rem;
+    position: relative;
+    padding: 5rem 1.5rem 4rem;
     text-align: center;
+    background-image: url('/images/hero-nihonbashi.webp');
+    background-size: cover;
+    background-position: center right;
+    overflow: hidden;
   }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(250, 248, 243, 0.91) 0%,
+      rgba(250, 248, 243, 0.75) 45%,
+      rgba(250, 248, 243, 0.28) 100%
+    );
+    z-index: 0;
+  }
+  .hero > * { position: relative; z-index: 1; }
   .hero-tag {
     font-size: 0.72rem;
     letter-spacing: 0.25em;
@@ -183,15 +196,19 @@ import PathLine from '../../components/PathLine.astro';
   .about-link { font-size: 0.88rem; color: var(--color-accent); font-weight: 600; text-decoration: none; font-family: var(--font-sans); }
   .about-link:hover { text-decoration: underline; }
 
-  /* ── Link Cards ── */
+  /* ── Link Cards — 3열 ── */
   .section-links { padding: 1rem 0 2rem; }
-  .link-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .link-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
   .link-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.25rem; border: 1px solid var(--color-line); border-radius: 4px; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s; background: var(--color-surface); }
   .link-card:hover { border-color: var(--color-accent-soft); box-shadow: 0 4px 12px rgba(0,0,0,0.05); transform: translateY(-2px); text-decoration: none; }
   .link-card-icon { font-size: 1.5rem; }
   .link-card-label { font-size: 0.95rem; font-weight: 700; color: var(--color-text); font-family: var(--font-serif); }
   .link-card-desc { font-size: 0.8rem; color: var(--color-muted); line-height: 1.5; font-family: var(--font-sans); }
 
+  @media (max-width: 768px) {
+    .hero { background-position: center; }
+    .hero::before { background: rgba(250, 248, 243, 0.86); }
+  }
   @media (max-width: 600px) {
     .about-grid { grid-template-columns: 1fr; }
     .link-cards { grid-template-columns: 1fr; }
