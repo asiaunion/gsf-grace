@@ -9,7 +9,7 @@ import PathLine from '../../components/PathLine.astro';
 
 <BaseLayout
   title="GSFGrace — Hodos Tokyo"
-  description="ὁδός. 道. 길. 요한복음 14:6 — 생명을 받고, 함께 걷다."
+  description="ὁδός. 道. 길. 요한복음 10:10 — 생명을 받고, 함께 걷다."
   lang="ko"
 >
   <!-- Hero -->
@@ -22,7 +22,7 @@ import PathLine from '../../components/PathLine.astro';
       생명을 받고, 함께 걷다.
     </p>
     <p class="hero-eng">낯선 이에서 이웃으로. / 이웃에서 가족으로.</p>
-    <p class="hero-verse">"내가 곧 길이요 진리요 생명이니" — 요한복음 14:6</p>
+    <p class="hero-verse">"생명을 얻고, 더 풍성히 얻게 하려" — 요한복음 10:10</p>
     <div class="hero-actions">
       <a href="/ko/story" class="btn-primary" id="hero-story-cta">처음 오셨나요? →</a>
       <a href="/ko/qa" class="btn-secondary" id="hero-qa-link">궁금한 질문</a>
@@ -31,36 +31,23 @@ import PathLine from '../../components/PathLine.astro';
 
   <PathLine />
 
-  <!-- About 2단 -->
+  <!-- About — STEP 3: placeholder 제거, 텍스트 단독 -->
   <section class="section-about" aria-labelledby="about-heading">
-    <div class="about-grid">
-      <figure class="about-photo">
-        <img
-          src="/images/nihonbashi-placeholder.svg"
-          alt="니혼바시"
-          width="400"
-          height="250"
-          loading="lazy"
-          class="photo-img"
-        />
-        <figcaption class="photo-caption">— 사진 준비 중입니다</figcaption>
-      </figure>
-      <div class="about-text">
-        <p class="about-label">ABOUT GSFGRACE</p>
-        <p class="about-body">
-          도쿄 니혼바시에서,<br />
-          은혜 안에서 함께 걷기 위해.
-        </p>
-        <p class="about-sub">
-          기독교를 향한 질문. 신앙과 일상.<br />
-          도쿄에서 복음을 살아가는, 하나하나의 걸음.
-        </p>
-        <p class="about-sub">
-          우리는 '독자'를 늘리기 위해서가 아니라,<br />
-          한 사람의 이웃을 만나기 위해 여기 있습니다.
-        </p>
-        <a href="/ko/story" class="about-link" id="about-story-link">우리에 대하여 →</a>
-      </div>
+    <div class="about-text">
+      <p class="about-label">ABOUT GSFGRACE</p>
+      <p class="about-body">
+        도쿄 니혼바시에서,<br />
+        은혜 안에서 함께 걷기 위해.
+      </p>
+      <p class="about-sub">
+        기독교를 향한 질문. 신앙과 일상.<br />
+        도쿄에서 복음을 살아가는, 하나하나의 걸음.
+      </p>
+      <p class="about-sub">
+        우리는 '독자'를 늘리기 위해서가 아니라,<br />
+        한 사람의 이웃을 만나기 위해 여기 있습니다.
+      </p>
+      <a href="/ko/story" class="about-link" id="about-story-link">우리에 대하여 →</a>
     </div>
   </section>
 
@@ -99,15 +86,16 @@ import PathLine from '../../components/PathLine.astro';
     background-position: center right;
     overflow: hidden;
   }
+  /* 가독성 오버레이 — STEP 4-2: 중앙값 상향 */
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(
       to right,
-      rgba(250, 248, 243, 0.91) 0%,
-      rgba(250, 248, 243, 0.75) 45%,
-      rgba(250, 248, 243, 0.28) 100%
+      rgba(250, 248, 243, 0.93) 0%,
+      rgba(250, 248, 243, 0.82) 50%,
+      rgba(250, 248, 243, 0.45) 100%
     );
     z-index: 0;
   }
@@ -137,16 +125,17 @@ import PathLine from '../../components/PathLine.astro';
     line-height: 1.8;
     margin-bottom: 0.75rem;
   }
+  /* STEP 4-1: muted 텍스트 진하게 */
   .hero-eng {
     font-size: 0.85rem;
     font-family: var(--font-sans);
-    color: var(--color-muted);
+    color: #57534E;
     margin-bottom: 1.25rem;
   }
   .hero-verse {
     font-size: 0.88rem;
     font-family: var(--font-serif);
-    color: var(--color-muted);
+    color: #57534E;
     font-style: italic;
     margin-bottom: 2rem;
   }
@@ -169,27 +158,26 @@ import PathLine from '../../components/PathLine.astro';
     font-family: var(--font-sans);
   }
   .btn-primary:hover { background: var(--color-accent-deep); transform: translateY(-1px); text-decoration: none; }
+  /* STEP 4-3: 보조 버튼 반투명 흔 배경 */
   .btn-secondary {
     display: inline-block;
     padding: 0.75rem 1.75rem;
-    background: transparent;
-    color: var(--color-muted);
-    border: 1.5px solid var(--color-line);
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--color-text);
+    border: 1.5px solid var(--color-accent);
     border-radius: 4px;
     font-weight: 600;
     font-size: 0.95rem;
     text-decoration: none;
-    transition: border-color 0.15s, color 0.15s;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
     font-family: var(--font-sans);
+    backdrop-filter: blur(2px);
   }
-  .btn-secondary:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.9); border-color: var(--color-accent-deep); color: var(--color-accent-deep); text-decoration: none; }
 
-  /* ── About ── */
-  .section-about { padding: 3rem 0; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
-  .about-photo { margin: 0; }
-  .photo-img { width: 100%; height: auto; filter: grayscale(1); opacity: 0.9; display: block; border-radius: 2px; }
-  .photo-caption { font-size: 0.72rem; color: var(--color-muted); margin-top: 0.5rem; font-style: italic; font-family: var(--font-sans); }
+  /* ── About — STEP 3: 텍스트 단독 ── */
+  .section-about { padding: 3rem 0; max-width: 640px; margin: 0 auto; }
+  /* .about-grid, .about-photo, .photo-img, .photo-caption — 주석 보존 (실사진 준비 시 복원용) */
   .about-label { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--color-muted); font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; font-family: var(--font-sans); }
   .about-body { font-size: 1.05rem; font-family: var(--font-serif); color: var(--color-text); line-height: 1.9; margin-bottom: 1.25rem; }
   .about-sub { font-size: 0.88rem; color: var(--color-muted); line-height: 1.85; margin-bottom: 1rem; font-family: var(--font-sans); }

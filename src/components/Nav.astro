@@ -100,7 +100,7 @@ const navItems = lang === 'ja'
     line-height: 1.2;
     text-decoration: none;
     flex-shrink: 0;
-    margin-right: auto;           /* ← 로고를 좌측 끝에 고정 */
+    /* margin-right: auto 제거 — 메뉴가 로고 옆에 도로 배치됨 */
   }
 
   /* STEP 3: 1.25rem / 800 */
@@ -126,6 +126,7 @@ const navItems = lang === 'ja'
     gap: 0.3rem;
     flex-shrink: 0;
     order: 2;
+    margin-left: auto;   /* ← 스위처만 우측 끝 */
   }
 
   .lang-opt {
