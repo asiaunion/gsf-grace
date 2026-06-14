@@ -1,7 +1,7 @@
 ---
 /**
  * /qa/[tag]/[slug].astro — 개별 Q&A 동적 라우트
- * SEO: /qa/suffering/why-does-god-allow-suffering
+ * STEP 2: olive-earth 변수화, serif 제목
  */
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
@@ -47,18 +47,18 @@ const { Content } = await post.render();
 
 <style>
   .qa-article { padding: 2rem 0; }
-  .qa-header { padding-bottom: 2rem; border-bottom: 1px solid #e7e5e4; margin-bottom: 2rem; }
-  .back-link { font-size: 0.8rem; color: #7c3aed; text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; }
+  .qa-header { padding-bottom: 2rem; border-bottom: 1px solid var(--color-line); margin-bottom: 2rem; }
+  .back-link { font-size: 0.8rem; color: var(--color-accent); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; font-family: var(--font-sans); }
   .back-link:hover { text-decoration: underline; }
-  .qa-question { font-size: 0.9rem; color: #78716c; font-style: italic; margin: 1rem 0 0.5rem; }
-  .qa-title { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 800; color: #1c1917; letter-spacing: -0.02em; }
-  .qa-content { font-size: 1rem; line-height: 1.85; color: #292524; }
-  .qa-content :global(h2) { font-size: 1.25rem; font-weight: 700; color: #1c1917; margin: 2rem 0 0.75rem; }
+  .qa-question { font-size: 0.9rem; color: var(--color-muted); font-style: italic; margin: 1rem 0 0.5rem; font-family: var(--font-sans); }
+  .qa-title { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 700; color: var(--color-text); letter-spacing: -0.02em; font-family: var(--font-serif); }
+  .qa-content { font-size: 1rem; line-height: 1.85; color: var(--color-text); font-family: var(--font-sans); }
+  .qa-content :global(h2) { font-size: 1.25rem; font-weight: 700; color: var(--color-text); margin: 2rem 0 0.75rem; font-family: var(--font-serif); }
   .qa-content :global(p) { margin-bottom: 1.25rem; }
-  .qa-content :global(blockquote) { border-left: 3px solid #7c3aed; padding: 0.75rem 1.25rem; background: #faf5ff; margin: 1.5rem 0; border-radius: 0 6px 6px 0; }
-  .qa-footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e7e5e4; }
-  .story-cta-banner { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 10px; padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-  .cta-question { font-size: 0.9rem; color: #57534e; }
-  .cta-link { font-size: 0.9rem; font-weight: 600; color: #7c3aed; text-decoration: none; white-space: nowrap; }
+  .qa-content :global(blockquote) { border-left: 2px solid var(--color-accent); padding: 0.75rem 1.25rem; background: var(--color-accent-soft); margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+  .qa-footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-line); }
+  .story-cta-banner { background: var(--color-accent-soft); border: 1px solid var(--color-line); border-radius: 4px; padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .cta-question { font-size: 0.9rem; color: var(--color-muted); font-family: var(--font-sans); }
+  .cta-link { font-size: 0.9rem; font-weight: 600; color: var(--color-accent); text-decoration: none; white-space: nowrap; font-family: var(--font-sans); }
   .cta-link:hover { text-decoration: underline; }
 </style>

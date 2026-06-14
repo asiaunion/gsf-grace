@@ -1,9 +1,10 @@
 ---
 /**
  * index.astro — GSFGrace 홈페이지
- * JA First: 일본어가 기본 언어
+ * STEP 2+3+4+5+6: olive-earth 색 시스템, Manifesto 카피, serif 제목, PathLine, About 2단, 흑백 placeholder
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PathLine from '../components/PathLine.astro';
 ---
 
 <BaseLayout
@@ -11,25 +12,62 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="ὁδός. 道. 길. 요14:6 — Receive Life. Become Mercy."
   lang="ja"
 >
+  <!-- Hero -->
   <section class="hero">
-    <p class="hero-tag">ὁδός — 道 — 길</p>
+    <p class="hero-tag">QUIET ・ MERCIFUL ・ TOKYO</p>
     <h1 class="hero-title">
       Receive Life.<br />Become Mercy.
     </h1>
-    <p class="hero-verse">「わたしは道であり、真理であり、命である」— ヨハネ14:6</p>
+    <p class="hero-tagline">
+      東京・日本橋から。<br />一人に立ち止まる、その道を。
+    </p>
+    <p class="hero-eng">— to stop for the one. a way called Hodos.</p>
+    <p class="hero-verse">「わたしは道であり、真理であり、命である」— ヨハネ 14:6</p>
     <div class="hero-actions">
       <a href="/story" class="btn-primary" id="hero-story-cta">はじめての方へ →</a>
       <a href="/qa" class="btn-secondary" id="hero-qa-link">疑問に答える</a>
     </div>
   </section>
 
-  <section class="section-intro">
-    <p class="section-lead">
-      東京・日本橋から、福音をお届けします。<br />
-      キリスト教への疑問、信仰と日常、東京での宣教の歩み。
-    </p>
+  <PathLine />
+
+  <!-- About — 2단 (좌: 흑백 사진, 우: 텍스트) -->
+  <section class="section-about" aria-labelledby="about-heading">
+    <div class="about-grid">
+      <figure class="about-photo">
+        <img
+          src="/images/nihonbashi-placeholder.svg"
+          alt="日本橋"
+          width="400"
+          height="250"
+          loading="lazy"
+          class="photo-img"
+        />
+        <figcaption class="photo-caption">— 写真は準備中です</figcaption>
+      </figure>
+      <div class="about-text">
+        <p class="about-label">ABOUT GSFGRACE</p>
+        <p class="about-body">
+          東京・日本橋から、<br />
+          福音を — 届けるためではなく、<br />
+          ともに歩むために。
+        </p>
+        <p class="about-sub">
+          キリスト教への疑問。信仰と日常。<br />
+          東京で福音を生きる、一つひとつの歩み。
+        </p>
+        <p class="about-sub">
+          わたしたちは「読者」を増やすためでなく、<br />
+          一人の隣人と出会うために、ここにいます。
+        </p>
+        <a href="/story" class="about-link" id="about-story-link">わたしたちについて →</a>
+      </div>
+    </div>
   </section>
 
+  <PathLine />
+
+  <!-- 콘텐츠 링크 카드 -->
   <section class="section-links" aria-label="コンテンツへのリンク">
     <div class="link-cards">
       <a href="/qa" class="link-card" id="home-qa-card">
@@ -57,32 +95,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
+  /* ── Hero ── */
   .hero {
     padding: 4rem 0 3rem;
     text-align: center;
   }
 
   .hero-tag {
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    color: #7c3aed;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    color: var(--color-accent);
     font-weight: 600;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-sans);
   }
 
   .hero-title {
     font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.2;
-    color: #1c1917;
-    letter-spacing: -0.03em;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-serif);
+  }
+
+  .hero-tagline {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-family: var(--font-serif);
+    color: var(--color-text);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-eng {
+    font-size: 0.85rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-muted);
     margin-bottom: 1.25rem;
   }
 
   .hero-verse {
-    font-size: 0.9rem;
-    color: #78716c;
+    font-size: 0.88rem;
+    font-family: var(--font-serif);
+    color: var(--color-muted);
     font-style: italic;
     margin-bottom: 2rem;
   }
@@ -94,20 +152,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     flex-wrap: wrap;
   }
 
+  /* ── Buttons (STEP 6: radius 4px) ── */
   .btn-primary {
     display: inline-block;
     padding: 0.75rem 1.75rem;
-    background: #7c3aed;
+    background: var(--color-accent);
     color: #fff;
-    border-radius: 8px;
+    border-radius: 4px;
     font-weight: 700;
     font-size: 0.95rem;
     text-decoration: none;
     transition: background 0.15s, transform 0.1s;
+    font-family: var(--font-sans);
   }
 
   .btn-primary:hover {
-    background: #6d28d9;
+    background: var(--color-accent-deep);
     transform: translateY(-1px);
     text-decoration: none;
   }
@@ -116,33 +176,94 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: inline-block;
     padding: 0.75rem 1.75rem;
     background: transparent;
-    color: #57534e;
-    border: 1.5px solid #d6d3d1;
-    border-radius: 8px;
+    color: var(--color-muted);
+    border: 1.5px solid var(--color-line);
+    border-radius: 4px;
     font-weight: 600;
     font-size: 0.95rem;
     text-decoration: none;
     transition: border-color 0.15s, color 0.15s;
+    font-family: var(--font-sans);
   }
 
   .btn-secondary:hover {
-    border-color: #7c3aed;
-    color: #7c3aed;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
     text-decoration: none;
   }
 
-  .section-intro {
-    padding: 2rem 0 3rem;
-    border-top: 1px solid #e7e5e4;
+  /* ── About 2단 ── */
+  .section-about {
+    padding: 3rem 0;
   }
 
-  .section-lead {
-    font-size: 1rem;
-    color: #57534e;
-    text-align: center;
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .about-photo {
+    margin: 0;
+  }
+
+  .photo-img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(1);
+    opacity: 0.9;
+    display: block;
+    border-radius: 2px;
+  }
+
+  .photo-caption {
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    margin-top: 0.5rem;
+    font-style: italic;
+    font-family: var(--font-sans);
+  }
+
+  .about-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    color: var(--color-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-family: var(--font-sans);
+  }
+
+  .about-body {
+    font-size: 1.05rem;
+    font-family: var(--font-serif);
+    color: var(--color-text);
     line-height: 1.9;
+    margin-bottom: 1.25rem;
   }
 
+  .about-sub {
+    font-size: 0.88rem;
+    color: var(--color-muted);
+    line-height: 1.85;
+    margin-bottom: 1rem;
+    font-family: var(--font-sans);
+  }
+
+  .about-link {
+    font-size: 0.88rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: none;
+    font-family: var(--font-sans);
+  }
+
+  .about-link:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Link Cards ── */
   .section-links {
     padding: 1rem 0 2rem;
   }
@@ -158,16 +279,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     flex-direction: column;
     gap: 0.4rem;
     padding: 1.25rem;
-    border: 1px solid #e7e5e4;
-    border-radius: 10px;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
     text-decoration: none;
     transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
-    background: #fff;
+    background: var(--color-surface);
   }
 
   .link-card:hover {
-    border-color: #c4b5fd;
-    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08);
+    border-color: var(--color-accent-soft);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transform: translateY(-2px);
     text-decoration: none;
   }
@@ -179,16 +300,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .link-card-label {
     font-size: 0.95rem;
     font-weight: 700;
-    color: #1c1917;
+    color: var(--color-text);
+    font-family: var(--font-serif);
   }
 
   .link-card-desc {
     font-size: 0.8rem;
-    color: #78716c;
+    color: var(--color-muted);
     line-height: 1.5;
+    font-family: var(--font-sans);
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
     .link-cards {
       grid-template-columns: 1fr;
     }

@@ -45,32 +45,36 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 <style>
   .page-header {
     padding: 2rem 0;
-    border-bottom: 1px solid #e7e5e4;
+    border-bottom: 1px solid var(--color-line);
     margin-bottom: 2rem;
   }
   .page-tag {
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    color: #7c3aed;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
+    font-family: var(--font-sans);
   }
   .page-header h1 {
     font-size: 2rem;
-    font-weight: 800;
-    color: #1c1917;
+    font-weight: 700;
+    color: var(--color-text);
     letter-spacing: -0.02em;
+    font-family: var(--font-serif);
   }
   .page-desc {
-    color: #78716c;
+    color: var(--color-muted);
     margin-top: 0.5rem;
     font-size: 0.9rem;
+    font-family: var(--font-sans);
   }
   .empty-state {
     padding: 3rem 0;
-    color: #78716c;
+    color: var(--color-muted);
     text-align: center;
+    font-family: var(--font-sans);
   }
   .post-list {
     list-style: none;
@@ -81,40 +85,44 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
   .post-link {
     display: block;
     padding: 1.25rem;
-    border: 1px solid #e7e5e4;
-    border-radius: 8px;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
     text-decoration: none;
     transition: border-color 0.15s, box-shadow 0.15s;
-    background: #fff;
+    background: var(--color-surface);
   }
   .post-link:hover {
-    border-color: #c4b5fd;
-    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.07);
+    border-color: var(--color-accent-soft);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     text-decoration: none;
   }
   .post-passage {
     font-size: 0.75rem;
-    color: #7c3aed;
+    color: var(--color-accent);
     font-weight: 600;
     letter-spacing: 0.05em;
     display: block;
     margin-bottom: 0.25rem;
+    font-family: var(--font-sans);
   }
   .post-title {
     font-size: 1rem;
     font-weight: 600;
-    color: #1c1917;
+    color: var(--color-text);
     margin-bottom: 0.25rem;
+    font-family: var(--font-serif);
   }
   .post-date {
     font-size: 0.75rem;
     color: #a8a29e;
+    font-family: var(--font-sans);
   }
   .page-story-cta {
     margin-top: 3rem;
     padding-top: 1.5rem;
-    border-top: 1px solid #e7e5e4;
+    border-top: 1px solid var(--color-line);
     text-align: center;
     font-size: 0.9rem;
+    font-family: var(--font-sans);
   }
 </style>

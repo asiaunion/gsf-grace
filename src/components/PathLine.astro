@@ -1,0 +1,22 @@
+---
+/**
+ * PathLine.astro — STEP 5: 길 모티프 컴포넌트
+ * 1px 그라데이션 선. nav 아래, hero 아래, footer 위에 삽입.
+ */
+---
+<div class="path-line"></div>
+
+<style>
+  .path-line {
+    max-width: 720px;
+    margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-line) 12%,
+      var(--color-line) 88%,
+      transparent
+    );
+  }
+</style>

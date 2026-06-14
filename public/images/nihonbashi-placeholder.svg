@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="日本橋（写真準備中）">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8e4db"/>
+      <stop offset="1" stop-color="#cfcabf"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <g stroke="#b3ad9f" stroke-width="1.5" fill="none" opacity="0.55">
+    <path d="M0 360 Q400 300 800 360"/>
+    <path d="M0 380 Q400 322 800 380"/>
+    <line x1="120" y1="330" x2="120" y2="420"/>
+    <line x1="340" y1="312" x2="340" y2="410"/>
+    <line x1="560" y1="318" x2="560" y2="412"/>
+    <line x1="700" y1="335" x2="700" y2="422"/>
+  </g>
+  <text x="400" y="250" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="22" fill="#9c968a" letter-spacing="4">日本橋</text>
+  <text x="400" y="282" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#b3ad9f" letter-spacing="3">写真準備中</text>
+</svg>

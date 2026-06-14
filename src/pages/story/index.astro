@@ -1,63 +1,72 @@
 ---
 /**
- * /story — 処初めての方へ / 처음 오셨나요?
- * ★★★ 스펙 최우선 페이지: 홈보다 중요
- * 부르심·도쿄·비전 만남의 공간
+ * /story — はじめての方へ / 처음 오셨나요?
+ * STEP 2+3+4: Manifesto 카피, olive-earth 색, serif 제목
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PathLine from '../../components/PathLine.astro';
 ---
 
 <BaseLayout
   title="はじめての方へ — GSFGrace"
-  description="なぜ東京で宣教を？ 승주 목사의 부르심과 도쿄 비전 이야기."
+  description="なぜ東京で宣教を？ 東京・日本橋から一人の隣人に出会うために。"
   lang="ja"
 >
   <article class="story-page">
     <header class="story-header">
-      <p class="story-tag">はじめての方へ / 처음 오셨나요?</p>
-      <h1 class="story-title">道の途中で</h1>
-      <p class="story-subtitle">ὁδός — 길 위에서</p>
+      <p class="story-tag">はじめての方へ</p>
+      <h1 class="story-title">なぜ、この場所が存在するのか。</h1>
     </header>
+
+    <PathLine />
 
     <section class="story-body">
       <p class="story-lead">
-        この場所は、東京・日本橋から発信される福音のチャンネルです。
+        東京は、世界でもっとも孤独な都市のひとつです。<br />
+        3,700万人が暮らし、それでも多くの人が<br />
+        一人で生き、一人で去っていきます。
       </p>
 
       <p>
-        私はスンジュ（承柱）、韓国出身の牧師です。
-        神の召しに従い、妻のマユミと共に東京に移り住みました。
-        私たちが目指しているのは、<strong>Nihonbashi Grace Oikos</strong>—
-        日本橋に根ざした小さな福音の共同体です。
+        日本橋 ——「日本の橋」。<br />
+        江戸の昔から、すべての道がここから始まりました。
+      </p>
+
+      <p>
+        わたしたちは、この場所から<br />
+        一つの「いのちの橋」を架けたいのです。
       </p>
 
       <blockquote class="story-quote">
-        <p>「わたしは道であり、真理であり、命である。」</p>
-        <cite>— ヨハネ14:6</cite>
+        <p>「行って、あなたも同じようにしなさい」</p>
+        <cite>— ルカ 10:37</cite>
       </blockquote>
 
       <p>
-        ここには疑問への答えがあります。苦しみ、死、科学と信仰、
-        そして人生の意味について。
-        一緒に考えましょう。
+        私はスンジュ（承柱）、韓国出身の牧師です。<br />
+        神の召しに従い、妻のマユミと共に東京に移り住みました。<br />
+        私たちが目指しているのは、<strong>Nihonbashi Grace Oikos</strong>—<br />
+        日本橋に根ざした小さな福音の共同体です。
       </p>
     </section>
+
+    <PathLine />
 
     <section class="story-cta">
       <div class="cta-grid">
         <div class="cta-card" id="story-newsletter-cta">
           <h2>東京からの手紙を受け取る</h2>
-          <p>新しい記事と宣教のことをお届けします。</p>
+          <p>新しい記事と宣教のことを、ときどきお届けします。</p>
           <form action="#" method="POST" class="inline-form" aria-label="Newsletter signup">
             <input type="email" name="email" placeholder="メールアドレス" required id="story-email-input" />
-            <button type="submit" id="story-subscribe-btn">購読する</button>
+            <button type="submit" id="story-subscribe-btn">手紙を受け取る</button>
           </form>
         </div>
         <div class="cta-card prayer-card" id="story-prayer-cta">
           <h2>祈りで共に</h2>
           <p class="prayer-text">
             東京のために祈ってください。<br />
-            日本橋に福音の共同体が建てられますように。
+            日本橋に、福音の家族が立てられますように。
           </p>
         </div>
       </div>
@@ -72,78 +81,76 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .story-header {
     text-align: center;
-    padding: 2rem 0 3rem;
-    border-bottom: 1px solid #e7e5e4;
-    margin-bottom: 2.5rem;
+    padding: 2rem 0 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .story-tag {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    color: #7c3aed;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--color-accent);
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 1rem;
+    font-family: var(--font-sans);
   }
 
   .story-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 800;
-    color: #1c1917;
-    letter-spacing: -0.03em;
-    margin-bottom: 0.5rem;
-  }
-
-  .story-subtitle {
-    font-size: 1rem;
-    color: #78716c;
-    font-style: italic;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    font-family: var(--font-serif);
   }
 
   .story-body {
     max-width: 640px;
-    margin: 0 auto;
+    margin: 2rem auto;
   }
 
   .story-lead {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #1c1917;
-    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    font-family: var(--font-serif);
+    color: var(--color-text);
+    margin-bottom: 1.75rem;
+    line-height: 1.9;
   }
 
   .story-body p {
-    color: #44403c;
+    color: var(--color-text);
     margin-bottom: 1.25rem;
     font-size: 1rem;
-    line-height: 1.8;
+    line-height: 1.85;
+    font-family: var(--font-sans);
   }
 
   .story-quote {
-    border-left: 3px solid #7c3aed;
+    border-left: 2px solid var(--color-accent);
     padding: 1rem 1.5rem;
     margin: 2rem 0;
-    background: #faf5ff;
-    border-radius: 0 8px 8px 0;
+    background: var(--color-accent-soft);
+    border-radius: 0 2px 2px 0;
   }
 
   .story-quote p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-style: italic;
-    color: #3b0764;
+    color: var(--color-text);
     margin-bottom: 0.5rem;
+    font-family: var(--font-serif);
   }
 
   .story-quote cite {
     font-size: 0.85rem;
-    color: #7c3aed;
+    color: var(--color-accent);
     font-style: normal;
+    font-family: var(--font-sans);
   }
 
   .story-cta {
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid #e7e5e4;
   }
 
   .cta-grid {
@@ -154,23 +161,25 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .cta-card {
     padding: 1.5rem;
-    border: 1px solid #e7e5e4;
-    border-radius: 12px;
-    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    background: var(--color-surface);
   }
 
   .cta-card h2 {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 700;
-    color: #1c1917;
+    color: var(--color-text);
     margin-bottom: 0.5rem;
+    font-family: var(--font-serif);
   }
 
   .cta-card p {
     font-size: 0.85rem;
-    color: #78716c;
+    color: var(--color-muted);
     margin-bottom: 1rem;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-family: var(--font-sans);
   }
 
   .inline-form {
@@ -181,39 +190,44 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .inline-form input {
     padding: 0.5rem 0.75rem;
-    border: 1px solid #e7e5e4;
-    border-radius: 6px;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
     font-size: 0.875rem;
     outline: none;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
   }
 
   .inline-form input:focus {
-    border-color: #7c3aed;
+    border-color: var(--color-accent);
   }
 
   .inline-form button {
     padding: 0.5rem;
-    background: #7c3aed;
+    background: var(--color-warm);
     color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     font-weight: 600;
     font-size: 0.875rem;
     cursor: pointer;
+    transition: background 0.15s;
+    font-family: var(--font-sans);
   }
 
   .inline-form button:hover {
-    background: #6d28d9;
+    background: #9a7349;
   }
 
   .prayer-card {
-    background: #faf5ff;
-    border-color: #e9d5ff;
+    background: var(--color-accent-soft);
+    border-color: var(--color-accent-soft);
   }
 
   .prayer-text {
     font-style: italic;
-    line-height: 1.8 !important;
+    line-height: 1.85 !important;
   }
 
   @media (max-width: 600px) {

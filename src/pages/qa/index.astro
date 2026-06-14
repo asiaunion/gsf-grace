@@ -1,8 +1,7 @@
 ---
 /**
  * /qa — 疑問に答える / 궁금한 질문
- * SEO 핵심: 일본인 검색 쿼리 직접 매칭
- * 라우트: /qa/[tag]/[slug]
+ * STEP 2: olive-earth 색 변수화, serif h1, radius 4px
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
@@ -10,7 +9,6 @@ import { getCollection } from 'astro:content';
 const posts = await getCollection('qa', ({ data }) => !data.draft);
 posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// 태그별 그룹화
 const tags = [
   { key: 'suffering', label: '苦しみ', emoji: '💔' },
   { key: 'death', label: '死', emoji: '🌿' },
@@ -88,21 +86,21 @@ const groupedByTag = tags.reduce((acc, { key }) => {
 </BaseLayout>
 
 <style>
-  .page-header { padding: 2rem 0; border-bottom: 1px solid #e7e5e4; margin-bottom: 2rem; }
-  .page-tag { font-size: 0.75rem; letter-spacing: 0.12em; color: #7c3aed; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; }
-  .page-header h1 { font-size: 2rem; font-weight: 800; color: #1c1917; letter-spacing: -0.02em; }
-  .page-desc { color: #78716c; margin-top: 0.5rem; font-size: 0.9rem; line-height: 1.7; }
+  .page-header { padding: 2rem 0; border-bottom: 1px solid var(--color-line); margin-bottom: 2rem; }
+  .page-tag { font-size: 0.72rem; letter-spacing: 0.15em; color: var(--color-accent); font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; font-family: var(--font-sans); }
+  .page-header h1 { font-size: 2rem; font-weight: 700; color: var(--color-text); letter-spacing: -0.02em; font-family: var(--font-serif); }
+  .page-desc { color: var(--color-muted); margin-top: 0.5rem; font-size: 0.9rem; line-height: 1.7; font-family: var(--font-sans); }
   .tag-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
-  .tag-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.35rem 0.75rem; border: 1px solid #e7e5e4; border-radius: 999px; font-size: 0.8rem; color: #57534e; text-decoration: none; transition: border-color 0.15s, background 0.15s; background: #fff; }
-  .tag-pill:hover { border-color: #7c3aed; color: #7c3aed; text-decoration: none; background: #faf5ff; }
-  .tag-count { background: #ede9fe; color: #7c3aed; font-size: 0.7rem; padding: 0 0.3rem; border-radius: 999px; font-weight: 700; }
-  .empty-state { padding: 3rem 0; color: #78716c; text-align: center; }
+  .tag-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.35rem 0.75rem; border: 1px solid var(--color-line); border-radius: 999px; font-size: 0.8rem; color: var(--color-muted); text-decoration: none; transition: border-color 0.15s, background 0.15s; background: var(--color-surface); font-family: var(--font-sans); }
+  .tag-pill:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; background: var(--color-accent-soft); }
+  .tag-count { background: var(--color-accent-soft); color: var(--color-accent); font-size: 0.7rem; padding: 0 0.3rem; border-radius: 999px; font-weight: 700; }
+  .empty-state { padding: 3rem 0; color: var(--color-muted); text-align: center; font-family: var(--font-sans); }
   .qa-section { margin-bottom: 2.5rem; }
-  .section-heading { font-size: 1rem; font-weight: 700; color: #1c1917; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #f5f5f4; }
+  .section-heading { font-size: 1rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-line); font-family: var(--font-serif); }
   .post-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-  .post-link { display: block; padding: 1rem 1.25rem; border: 1px solid #e7e5e4; border-radius: 8px; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; background: #fff; }
-  .post-link:hover { border-color: #c4b5fd; box-shadow: 0 2px 8px rgba(124,58,237,0.07); text-decoration: none; }
-  .post-question { font-size: 0.78rem; color: #78716c; font-style: italic; margin-bottom: 0.2rem; }
-  .post-title { font-size: 0.95rem; font-weight: 600; color: #1c1917; }
-  .page-story-cta { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e7e5e4; text-align: center; font-size: 0.9rem; }
+  .post-link { display: block; padding: 1rem 1.25rem; border: 1px solid var(--color-line); border-radius: 4px; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; background: var(--color-surface); }
+  .post-link:hover { border-color: var(--color-accent-soft); box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-decoration: none; }
+  .post-question { font-size: 0.78rem; color: var(--color-muted); font-style: italic; margin-bottom: 0.2rem; font-family: var(--font-sans); }
+  .post-title { font-size: 0.95rem; font-weight: 600; color: var(--color-text); font-family: var(--font-serif); }
+  .page-story-cta { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--color-line); text-align: center; font-size: 0.9rem; font-family: var(--font-sans); }
 </style>

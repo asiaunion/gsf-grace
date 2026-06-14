@@ -33,6 +33,13 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={Astro.url.href} />
     <title>{title} | GSFGrace</title>
+    <!-- STEP 3: Google Fonts — Noto Serif JP + Noto Sans JP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <Nav lang={lang} />
@@ -52,14 +59,27 @@ const {
     padding: 0;
   }
 
+  /* STEP 1: olive-earth 토큰 (violet 계열 전면 교체) */
   :root {
-    --color-bg: #fafaf9;
-    --color-text: #1c1917;
-    --color-muted: #78716c;
-    --color-accent: #7c3aed; /* 보라 — 은혜·복음 */
-    --color-accent-soft: #ede9fe;
-    --font-sans: 'Noto Sans JP', 'Noto Sans KR', system-ui, sans-serif;
-    --font-serif: 'Noto Serif JP', 'Noto Serif KR', Georgia, serif;
+    /* Base */
+    --color-bg:          #FAF8F3;
+    --color-surface:     #FFFFFF;
+    --color-text:        #292524;
+    --color-muted:       #78716C;
+
+    /* Accent — 길/올리브/긍휼 */
+    --color-accent:      #5C6B57;
+    --color-accent-deep: #48543F;
+    --color-accent-soft: #EBEDE7;
+
+    /* Warm — 뉴스레터 CTA 단 1곳에만 */
+    --color-warm:        #B0875A;
+
+    --color-line:        #E3DFD5;
+
+    /* Typography */
+    --font-sans:  'Noto Sans JP', system-ui, sans-serif;
+    --font-serif: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', Georgia, serif;
   }
 
   html {
