@@ -97,7 +97,7 @@ const navItems = lang === 'ja'
   .nav-brand {
     display: inline-flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch; /* 위아래 빈틈 없이 꽉 차도록 */
     justify-content: center;
     text-decoration: none;
     flex-shrink: 0;
@@ -105,9 +105,12 @@ const navItems = lang === 'ja'
     border: 1px solid var(--color-accent);
     border-radius: 4px;
     overflow: hidden;
+    padding: 0; /* 여백 완벽 제거 */
   }
 
   .brand-gsf {
+    display: flex;
+    align-items: center;
     background: var(--color-accent);   /* olive 박스 */
     padding: 0.15rem 0.35rem;
     line-height: 1.15;
@@ -119,6 +122,8 @@ const navItems = lang === 'ja'
   }
 
   .brand-grace {
+    display: flex;
+    align-items: center;
     padding: 0.15rem 0.35rem;
     line-height: 1.15;
     background: transparent;
