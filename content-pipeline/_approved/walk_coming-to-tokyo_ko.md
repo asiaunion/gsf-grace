@@ -1,7 +1,11 @@
 ---
 title: "도쿄에 오기까지"
 lang: "ko"
-pubDate: 2026-06-15
+date: 2024-07-30
+updated: 2026-06-15
+category: walk
+series: Good Samaritan Mission
+order: 1
 description: "돌아보면 우연처럼 보였던 시간들이 있었습니다. 그러나 시간이 흐른 뒤에야, 그 모든 과정이 하나님께서 준비하신 길이었음을 조금씩 깨닫게 되었습니다."
 draft: false
 ---
@@ -97,3 +101,8 @@ draft: false
 더 읽고 싶으시다면 →
 
 [니혼바시 개척 비전](/ko/arche/vision)
+
+---
+
+※ 이 글은 당시 작성된 선교편지를 바탕으로,
+GSFGrace 편집 원칙에 따라 에세이 형식으로 재구성한 글입니다.

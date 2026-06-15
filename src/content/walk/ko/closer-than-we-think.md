@@ -1,7 +1,11 @@
 ---
 title: "기적은 생각보다 가까이에 있습니다"
 lang: "ko"
-pubDate: 2026-06-15
+date: 2025-12-12
+updated: 2026-06-15
+category: walk
+series: Good Samaritan Mission
+order: 5
 description: "우리는 종종 기적을 특별한 일로 생각합니다. 하지만 돌아보면 하나님은 일상의 작은 순간들을 통해 우리에게 희망을 건네고 계셨습니다."
 draft: false
 ---
@@ -145,3 +149,8 @@ draft: false
 기적은 생각보다 멀리 있지 않습니다.
 
 어쩌면 이미 우리의 일상 속에서 조용히 시작되고 있는지도 모릅니다.
+
+---
+
+※ 이 글은 당시 작성된 선교편지를 바탕으로,
+GSFGrace 편집 원칙에 따라 에세이 형식으로 재구성한 글입니다.

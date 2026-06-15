@@ -31,8 +31,8 @@ const { Content } = await render(post);
       {post.data.location && <p class="walk-location">📍 {post.data.location}</p>}
       <h1 class="walk-title">{post.data.title}</h1>
       <div class="walk-meta">
-        <time class="walk-date" datetime={post.data.pubDate.toISOString()}>
-          {post.data.pubDate.toLocaleDateString('ja-JP')}
+        <time class="walk-date" datetime={post.data.date.toISOString()}>
+          {post.data.date.toLocaleDateString('ja-JP')}
         </time>
         {post.data.author !== '승주' && (
           <span class="walk-byline">ライター · {post.data.author}</span>

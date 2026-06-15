@@ -1,7 +1,11 @@
 ---
 title: "東京に来るまで"
 lang: "ja"
-pubDate: 2026-06-15
+date: 2024-07-30
+updated: 2026-06-15
+category: walk
+series: Good Samaritan Mission
+order: 1
 description: "振り返ると、あの頃は偶然の出来事のように思えた時間がありました。しかし時が経って初めて、そのすべてが神様によって備えられた道だったことを少しずつ知るようになりました。"
 draft: false
 ---
@@ -119,3 +123,8 @@ draft: false
 もっと読みたい方へ →
 
 [日本橋開拓ビジョン](/arche/vision)
+
+---
+
+※ 本記事は当時執筆された宣教レターをもとに、
+GSFGrace編集方針に沿ってエッセイ形式へ再構成したものです。

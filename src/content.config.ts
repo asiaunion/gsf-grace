@@ -35,7 +35,11 @@ const walkCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     lang: langSchema,
-    pubDate: z.coerce.date(),
+    date: z.coerce.date(),
+    updated: z.coerce.date().optional(),
+    category: z.string().optional(),
+    series: z.string().optional(),
+    order: z.number().optional(),
     location: z.string().optional(),
     description: z.string().optional(),
     draft: z.boolean().default(false),

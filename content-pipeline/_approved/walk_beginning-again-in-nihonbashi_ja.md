@@ -1,7 +1,11 @@
 ---
 title: "日本橋で再び歩み始める"
 lang: "ja"
-pubDate: 2026-06-15
+date: 2026-03-31
+updated: 2026-06-15
+category: walk
+series: Good Samaritan Mission
+order: 6
 description: "江戸時代から日本のすべての道が始まる場所、日本橋。私たちはそこで新しい暮らしと、新しい召しをもう一度見つめ直すことになりました。"
 draft: false
 ---
@@ -195,3 +199,8 @@ draft: false
 もっと読みたい方へ →
 
 [日本橋エッセイ](/walk)
+
+---
+
+※ 本記事は当時執筆された宣教レターをもとに、
+GSFGrace編集方針に沿ってエッセイ形式へ再構成したものです。

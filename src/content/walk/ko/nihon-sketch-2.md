@@ -1,7 +1,7 @@
 ---
 title: "하늘이 열리던 밤"
 lang: "ko"
-pubDate: 2026-06-16
+date: 2026-06-16
 location: "도쿄 니혼바시"
 description: "길을 잃었다고 생각하던 순간, 오히려 새로운 길이 시작되고 있었다."
 draft: false

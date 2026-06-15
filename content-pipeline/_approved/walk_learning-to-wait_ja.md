@@ -1,7 +1,11 @@
 ---
 title: "見知らぬ街で学ぶ待つこと"
 lang: "ja"
-pubDate: 2026-06-15
+date: 2024-07-30
+updated: 2026-06-15
+category: walk
+series: Good Samaritan Mission
+order: 2
 description: "東京に来て間もない頃、私たちの生活は待つことの連続でした。住まいも、ビザも、健康も。答えの見えない時間の中で、神様は少しずつ道を開いておられました。"
 draft: false
 ---
@@ -153,3 +157,8 @@ draft: false
 「待つこともまた信仰の一つの姿である」
 
 ということを。
+
+---
+
+※ 本記事は当時執筆された宣教レターをもとに、
+GSFGrace編集方針に沿ってエッセイ形式へ再構成したものです。

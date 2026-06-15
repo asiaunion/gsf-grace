@@ -1,7 +1,7 @@
 ---
 title: "空が開かれた夜"
 lang: "ja"
-pubDate: 2026-06-15
+date: 2026-06-15
 location: "東京・日本橋"
 description: "道を見失ったと思った時、新しい道はすでに始まっていました。"
 draft: false

@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const posts = await getCollection('walk', ({ data }) => !data.draft && data.lang === 'ja');
-posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <BaseLayout
@@ -30,8 +30,8 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
             <h2 class="post-title">{post.data.title}</h2>
             {post.data.description && <p class="post-desc">{post.data.description}</p>}
             <div class="post-meta">
-              <time class="post-date" datetime={post.data.pubDate.toISOString()}>
-                {post.data.pubDate.toLocaleDateString('ja-JP')}
+              <time class="post-date" datetime={post.data.date.toISOString()}>
+                {post.data.date.toLocaleDateString('ja-JP')}
               </time>
               {post.data.author !== '승주' && (
                 <span class="post-byline">글 · {post.data.author}</span>

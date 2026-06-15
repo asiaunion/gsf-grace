@@ -1,7 +1,11 @@
 ---
 title: "작은 걸음으로 익숙해져 가는 시간"
 lang: "ko"
-pubDate: 2026-06-15
+date: 2024-10-19
+updated: 2026-06-15
+category: walk
+series: Good Samaritan Mission
+order: 3
 description: "낯선 나라에서 살아간다는 것은 거창한 사건보다 작은 걸음을 반복하는 일에 가깝습니다. 조금씩 배우고, 조금씩 이해하며, 조금씩 사랑하게 됩니다."
 draft: false
 ---
@@ -150,3 +154,8 @@ draft: false
 
 그 작은 걸음이 쌓여 어느 날 돌아보면,
 하나님께서 인도하신 길이 되어 있을 테니까요.
+
+---
+
+※ 이 글은 당시 작성된 선교편지를 바탕으로,
+GSFGrace 편집 원칙에 따라 에세이 형식으로 재구성한 글입니다.

@@ -1,7 +1,11 @@
 ---
 title: "니혼바시에서 다시 시작하다"
 lang: "ko"
-pubDate: 2026-06-15
+date: 2026-03-31
+updated: 2026-06-15
+category: walk
+series: Good Samaritan Mission
+order: 6
 description: "에도 시대부터 일본의 모든 길이 시작된 곳, 니혼바시. 우리는 그곳에서 새로운 삶과 새로운 부르심을 다시 마주하게 되었습니다."
 draft: false
 ---
@@ -177,3 +181,8 @@ draft: false
 그래서 오늘도 우리는 니혼바시의 길 위를 걸어갑니다.
 
 새로운 시작을 기대하며.
+
+---
+
+※ 이 글은 당시 작성된 선교편지를 바탕으로,
+GSFGrace 편집 원칙에 따라 에세이 형식으로 재구성한 글입니다.

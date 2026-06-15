@@ -1,7 +1,7 @@
 ---
 title: "현명한 바보"
 lang: "ko"
-pubDate: 2026-06-15
+date: 2026-06-15
 location: "도쿄 니혼바시"
 description: "사이토 소지로의 삶을 통해 다시 생각해보는 복음의 길"
 draft: false
