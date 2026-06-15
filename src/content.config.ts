@@ -12,6 +12,7 @@ const devotionCollection = defineCollection({
     pubDate: z.coerce.date(),
     passage: z.string().optional(),
     draft: z.boolean().default(false),
+    author: z.string().default('승주'),
   }),
 });
 
@@ -24,6 +25,7 @@ const faithLifeCollection = defineCollection({
     pubDate: z.coerce.date(),
     description: z.string().optional(),
     draft: z.boolean().default(false),
+    author: z.string().default('승주'),
   }),
 });
 
@@ -37,6 +39,7 @@ const walkCollection = defineCollection({
     location: z.string().optional(),
     description: z.string().optional(),
     draft: z.boolean().default(false),
+    author: z.string().default('승주'),
   }),
 });
 
@@ -54,6 +57,7 @@ const qaCollection = defineCollection({
     question: z.string(),
     description: z.string().optional(),
     draft: z.boolean().default(false),
+    author: z.string().default('승주'),
   }),
 });
 
@@ -66,6 +70,7 @@ const archeCollection = defineCollection({
     pubDate: z.coerce.date(),
     description: z.string().optional(),
     draft: z.boolean().default(true),
+    author: z.string().default('승주'),
   }),
 });
 
