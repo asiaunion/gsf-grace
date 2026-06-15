@@ -98,7 +98,7 @@ draft: false
 
 더 읽고 싶으시다면 →
 
-[니혼바시 개척 비전](/ko/arche/nihonbashi-vision)
+[니혼바시 비전](/ko/arche/nihonbashi-vision)
 
 ---
 
