@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const posts = await getCollection('walk', ({ data }) => !data.draft);
+const posts = await getCollection('walk', ({ data }) => !data.draft && data.lang === 'ja');
 posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
@@ -25,7 +25,7 @@ posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
     <ul class="post-list" role="list">
       {posts.map((post) => (
         <li>
-          <a href={`/walk/${post.slug}`} class="post-link" id={`walk-${post.slug}`}>
+          <a href={`/walk/${post.id.split('/').pop()}`} class="post-link" id={`walk-${post.id.split('/').pop()}`}>
             {post.data.location && <span class="post-location">📍 {post.data.location}</span>}
             <h2 class="post-title">{post.data.title}</h2>
             {post.data.description && <p class="post-desc">{post.data.description}</p>}
