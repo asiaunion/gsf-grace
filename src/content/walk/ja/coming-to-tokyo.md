@@ -120,7 +120,7 @@ draft: false
 
 もっと読みたい方へ →
 
-[日本橋開拓ビジョン](/arche/vision)
+[日本橋開拓ビジョン](/arche/nihonbashi-vision)
 
 ---
 
