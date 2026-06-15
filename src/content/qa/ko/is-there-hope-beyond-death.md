@@ -93,4 +93,6 @@ draft: false
 
 ---
 
+*다음 글: [하나님은 나 같은 사람도 받아주실까?](/ko/qa/salvation/will-god-accept-me)*
+
 *질문에 대한 완전한 답보다, 우리는 함께 길을 걸어가는 것을 중요하게 생각합니다. → [처음 오셨나요](/ko/story)*

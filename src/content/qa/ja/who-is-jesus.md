@@ -96,4 +96,6 @@ draft: false
 
 ---
 
+*次の記事: [死の向こうにも希望はあるのか](/qa/salvation/is-there-hope-beyond-death)*
+
 *質問に対する完全な答えよりも、私たちは共に道を歩むことを大切にしています。 → [はじめての方へ](/story)*

@@ -76,4 +76,6 @@ draft: false
 
 ---
 
+*다음 글: [왜 삶은 생각대로 되지 않을까?](/ko/qa/salvation/why-is-life-so-broken)*
+
 *질문에 대한 완전한 답보다, 우리는 함께 길을 걸어가는 것을 중요하게 생각합니다. → [처음 오셨나요](/ko/story)*

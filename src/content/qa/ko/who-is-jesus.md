@@ -78,4 +78,6 @@ draft: false
 
 ---
 
+*다음 글: [죽음 너머에도 희망은 있을까?](/ko/qa/salvation/is-there-hope-beyond-death)*
+
 *질문에 대한 완전한 답보다, 우리는 함께 길을 걸어가는 것을 중요하게 생각합니다. → [처음 오셨나요](/ko/story)*

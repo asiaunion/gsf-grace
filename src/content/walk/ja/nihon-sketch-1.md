@@ -1,7 +1,7 @@
 ---
 title: "愚か者と呼ばれた人"
 lang: "ja"
-date: 2026-06-15
+date: 2026-06-03
 location: "東京 日本橋"
 description: "斎藤宗次郎の人生から考える福音の道"
 draft: false
