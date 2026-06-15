@@ -1,13 +1,13 @@
 ---
 /**
- * /qa/[tag]/[slug].astro — 개별 Q&A 동적 라우트
- * STEP 2: olive-earth 변수화, serif 제목
+ * /ko/qa/[tag]/[slug].astro — 궁금한 질문 개별 글 KO
+ * TASK-0B: lang=ko 필터, post.id 기반 라우팅
  */
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('qa', ({ data }) => !data.draft && data.lang === 'ja');
+  const posts = await getCollection('qa', ({ data }) => !data.draft && data.lang === 'ko');
   return posts.map((post) => ({
     params: { tag: post.data.tag, slug: post.id.split('/').pop() },
     props: { post },
@@ -25,7 +25,7 @@ const { Content } = await render(post);
 >
   <article class="qa-article">
     <header class="qa-header">
-      <a href={`/qa/${post.data.tag}`} class="back-link" id="qa-back-link">
+      <a href={`/ko/qa/${post.data.tag}`} class="back-link" id="qa-ko-back-link">
         ← {post.data.tag}
       </a>
       <p class="qa-question">{post.data.question}</p>
@@ -37,9 +37,9 @@ const { Content } = await render(post);
     </div>
 
     <footer class="qa-footer">
-      <div class="story-cta-banner" id="qa-article-story-cta">
-        <p class="cta-question">この記事を書いた人は？</p>
-        <a href="/story" class="cta-link">GSFGraceについて →</a>
+      <div class="story-cta-banner" id="qa-ko-article-story-cta">
+        <p class="cta-question">이 글을 쓴 사람은?</p>
+        <a href="/ko/story" class="cta-link">GSFGrace에 대하여 →</a>
       </div>
     </footer>
   </article>

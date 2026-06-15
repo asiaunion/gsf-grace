@@ -1,0 +1,75 @@
+---
+/**
+ * /walk/[slug].astro — 걸어가며 개별 글 JA
+ * TASK-0B: lang=ja 필터, post.id 기반 라우팅
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('walk', ({ data }) => !data.draft && data.lang === 'ja');
+  return posts.map((post) => ({
+    params: { slug: post.id.split('/').pop() },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout
+  title={`${post.data.title} — GSFGrace`}
+  description={post.data.description ?? post.data.title}
+  lang={post.data.lang}
+>
+  <article class="walk-article">
+    <header class="walk-header">
+      <a href="/walk" class="back-link" id="walk-back-link">
+        ← 東京での歩み
+      </a>
+      {post.data.location && <p class="walk-location">📍 {post.data.location}</p>}
+      <h1 class="walk-title">{post.data.title}</h1>
+      <div class="walk-meta">
+        <time class="walk-date" datetime={post.data.pubDate.toISOString()}>
+          {post.data.pubDate.toLocaleDateString('ja-JP')}
+        </time>
+        {post.data.author !== '승주' && (
+          <span class="walk-byline">ライター · {post.data.author}</span>
+        )}
+      </div>
+    </header>
+
+    <div class="walk-content">
+      <Content />
+    </div>
+
+    <footer class="walk-footer">
+      <div class="story-cta-banner" id="walk-article-story-cta">
+        <p class="cta-question">この道を共に歩みませんか？</p>
+        <a href="/story" class="cta-link">GSFGraceについて →</a>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .walk-article { padding: 2rem 0; }
+  .walk-header { padding-bottom: 2rem; border-bottom: 1px solid var(--color-line); margin-bottom: 2rem; }
+  .back-link { font-size: 0.8rem; color: var(--color-accent); text-decoration: none; letter-spacing: 0.05em; font-family: var(--font-sans); }
+  .back-link:hover { text-decoration: underline; }
+  .walk-location { font-size: 0.85rem; color: var(--color-muted); margin: 1rem 0 0.25rem; font-family: var(--font-sans); }
+  .walk-title { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 700; color: var(--color-text); letter-spacing: -0.02em; font-family: var(--font-serif); }
+  .walk-meta { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem; }
+  .walk-date { font-size: 0.75rem; color: #a8a29e; font-family: var(--font-sans); }
+  .walk-byline { font-size: 0.75rem; color: var(--color-accent); font-family: var(--font-sans); font-style: italic; }
+  .walk-content { font-size: 1rem; line-height: 1.85; color: var(--color-text); font-family: var(--font-sans); }
+  .walk-content :global(h2) { font-size: 1.25rem; font-weight: 700; color: var(--color-text); margin: 2rem 0 0.75rem; font-family: var(--font-serif); }
+  .walk-content :global(p) { margin-bottom: 1.25rem; }
+  .walk-content :global(blockquote) { border-left: 2px solid var(--color-accent); padding: 0.75rem 1.25rem; background: var(--color-accent-soft); margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+  .walk-footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-line); }
+  .story-cta-banner { background: var(--color-accent-soft); border: 1px solid var(--color-line); border-radius: 4px; padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .cta-question { font-size: 0.9rem; color: var(--color-muted); font-family: var(--font-sans); }
+  .cta-link { font-size: 0.9rem; font-weight: 600; color: var(--color-accent); text-decoration: none; white-space: nowrap; font-family: var(--font-sans); }
+  .cta-link:hover { text-decoration: underline; }
+</style>

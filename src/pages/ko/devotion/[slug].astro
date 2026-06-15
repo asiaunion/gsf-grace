@@ -1,0 +1,68 @@
+---
+/**
+ * /ko/devotion/[slug].astro — 오늘의 묵상 개별 글 KO
+ * TASK-0B: lang=ko 필터, post.id 기반 라우팅
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('devotion', ({ data }) => !data.draft && data.lang === 'ko');
+  return posts.map((post) => ({
+    params: { slug: post.id.split('/').pop() },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout
+  title={`${post.data.title} — GSFGrace`}
+  description={post.data.passage ? `${post.data.passage} — ${post.data.title}` : post.data.title}
+  lang={post.data.lang}
+>
+  <article class="devotion-article">
+    <header class="devotion-header">
+      <a href="/ko/devotion" class="back-link" id="devotion-ko-back-link">
+        ← 말씀 묵상
+      </a>
+      {post.data.passage && <p class="devotion-passage">{post.data.passage}</p>}
+      <h1 class="devotion-title">{post.data.title}</h1>
+      <time class="devotion-date" datetime={post.data.pubDate.toISOString()}>
+        {post.data.pubDate.toLocaleDateString('ko-KR')}
+      </time>
+    </header>
+
+    <div class="devotion-content">
+      <Content />
+    </div>
+
+    <footer class="devotion-footer">
+      <div class="story-cta-banner" id="devotion-ko-article-story-cta">
+        <p class="cta-question">이 글을 쓴 사람은?</p>
+        <a href="/ko/story" class="cta-link">GSFGrace에 대하여 →</a>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .devotion-article { padding: 2rem 0; }
+  .devotion-header { padding-bottom: 2rem; border-bottom: 1px solid var(--color-line); margin-bottom: 2rem; }
+  .back-link { font-size: 0.8rem; color: var(--color-accent); text-decoration: none; letter-spacing: 0.05em; font-family: var(--font-sans); }
+  .back-link:hover { text-decoration: underline; }
+  .devotion-passage { font-size: 0.85rem; color: var(--color-accent); font-weight: 600; letter-spacing: 0.05em; margin: 1rem 0 0.25rem; font-family: var(--font-sans); }
+  .devotion-title { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 700; color: var(--color-text); letter-spacing: -0.02em; font-family: var(--font-serif); }
+  .devotion-date { font-size: 0.75rem; color: #a8a29e; font-family: var(--font-sans); display: block; margin-top: 0.5rem; }
+  .devotion-content { font-size: 1rem; line-height: 1.85; color: var(--color-text); font-family: var(--font-sans); }
+  .devotion-content :global(h2) { font-size: 1.25rem; font-weight: 700; color: var(--color-text); margin: 2rem 0 0.75rem; font-family: var(--font-serif); }
+  .devotion-content :global(p) { margin-bottom: 1.25rem; }
+  .devotion-content :global(blockquote) { border-left: 2px solid var(--color-accent); padding: 0.75rem 1.25rem; background: var(--color-accent-soft); margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+  .devotion-footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-line); }
+  .story-cta-banner { background: var(--color-accent-soft); border: 1px solid var(--color-line); border-radius: 4px; padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .cta-question { font-size: 0.9rem; color: var(--color-muted); font-family: var(--font-sans); }
+  .cta-link { font-size: 0.9rem; font-weight: 600; color: var(--color-accent); text-decoration: none; white-space: nowrap; font-family: var(--font-sans); }
+  .cta-link:hover { text-decoration: underline; }
+</style>
