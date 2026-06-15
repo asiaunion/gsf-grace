@@ -1,11 +1,8 @@
 ---
 title: "天への道が開かれるとき"
-slug: the-road-opens
-category: devotion
 passage: 創世記 28:10-19; 32:27-30
 lang: ja
 pubDate: 2026-06-10
-excerpt: "ヤコブは逃亡者のように道を歩いていました。しかし神様はその道の途中で、天への門を開いてくださいました。"
 ---
 
 私たちは時に、

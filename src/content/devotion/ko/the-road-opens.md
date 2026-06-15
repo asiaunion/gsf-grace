@@ -1,11 +1,8 @@
 ---
 title: "하늘의 길이 열리는 순간"
-slug: the-road-opens
-category: devotion
 passage: 창세기 28:10-19; 32:27-30
 lang: ko
 pubDate: 2026-06-10
-excerpt: "야곱은 도망자의 길을 걷고 있었습니다. 그러나 하나님께서는 그 길 위에서 하늘의 문을 열어 주셨습니다."
 ---
 
 우리는 때때로 원하지 않았던 길을 걷게 됩니다.

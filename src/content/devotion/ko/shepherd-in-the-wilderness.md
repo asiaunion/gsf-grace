@@ -1,6 +1,5 @@
 ---
 title: "광야에도 목자는 계십니다"
-slug: shepherd-in-the-wilderness
 passage: 시편 23:1-6
 lang: ko
 pubDate: 2026-06-12

@@ -1,6 +1,5 @@
 ---
 title: "荒野にも羊飼いはおられる"
-slug: shepherd-in-the-wilderness
 passage: 詩篇 23:1-6
 lang: ja
 pubDate: 2026-06-12
