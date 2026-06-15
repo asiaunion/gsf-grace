@@ -35,7 +35,8 @@ const navItems = lang === 'ja'
   <div class="nav-inner">
     <!-- 로고 pill -->
     <a href={lang === 'ko' ? '/ko' : '/'} class="nav-brand" aria-label="GSFGrace Home">
-      <span class="brand-name">GSFGrace</span>
+      <span class="brand-gsf">GSF</span>
+      <span class="brand-grace">Grace</span>
     </a>
 
     <!-- STEP 3: 언어 스위처 — 모바일에서도 항상 노출 (햄버거 밖) -->
@@ -92,23 +93,33 @@ const navItems = lang === 'ja'
     height: 64px;
   }
 
-  /* STEP 3: 로고 olive 박스 */
+  /* STEP 3: 로고 */
   .nav-brand {
     display: inline-flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    line-height: 1.15;
     text-decoration: none;
     flex-shrink: 0;
+    gap: 0.4em;
+  }
+
+  .brand-gsf {
     background: var(--color-accent);   /* olive 박스 */
     padding: 0.45rem 0.85rem;
     border-radius: 4px;
-  }
-
-  .brand-name {
+    line-height: 1.15;
     font-size: 1.0rem;
     font-weight: 700;
     color: #fff;
+    letter-spacing: 0.01em;
+    font-family: var(--font-sans);
+  }
+
+  .brand-grace {
+    font-size: 1.0rem;
+    font-weight: 700;
+    color: var(--color-accent);
     letter-spacing: 0.01em;
     font-family: var(--font-sans);
   }
