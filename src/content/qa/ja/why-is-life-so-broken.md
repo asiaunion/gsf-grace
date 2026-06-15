@@ -5,8 +5,7 @@ pubDate: 2026-06-15
 tag: "salvation"
 question: "なぜ人生は思い通りにならないのか"
 description: "幸せを求めているのに、なぜ人生はどこか噛み合わないのだろう。"
-draft: true
-slug: "why-is-life-so-broken"
+draft: false
 ---
 
 誰もが幸せを求めています。

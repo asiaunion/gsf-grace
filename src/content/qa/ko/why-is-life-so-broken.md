@@ -5,8 +5,7 @@ pubDate: 2026-06-15
 tag: "salvation"
 question: "왜 삶은 생각대로 되지 않을까?"
 description: "우리는 행복을 원하지만, 왜 삶은 자꾸 어긋나는 것처럼 느껴질까."
-draft: true
-slug: "why-is-life-so-broken"
+draft: false
 ---
 
 누구나 행복을 원합니다.
