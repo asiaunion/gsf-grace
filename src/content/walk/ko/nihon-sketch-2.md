@@ -2,10 +2,9 @@
 title: "하늘이 열리던 밤"
 lang: "ko"
 pubDate: 2026-06-15
-slug: "nihon-sketch-2"
 location: "도쿄 니혼바시"
 description: "길을 잃었다고 생각하던 순간, 오히려 새로운 길이 시작되고 있었다."
-draft: true
+draft: false
 ---
 
 도쿄에 처음 왔을 때를 떠올리면, 언제나 낯선 길의 감각이 먼저 생각납니다.

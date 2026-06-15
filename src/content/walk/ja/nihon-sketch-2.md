@@ -2,10 +2,9 @@
 title: "空が開かれた夜"
 lang: "ja"
 pubDate: 2026-06-15
-slug: "nihon-sketch-2"
 location: "東京・日本橋"
 description: "道を見失ったと思った時、新しい道はすでに始まっていました。"
-draft: true
+draft: false
 ---
 
 東京に来た頃を思い返すと、まず浮かぶのは「見知らぬ道」の感覚です。
