@@ -1,7 +1,7 @@
 ---
 title: "東京に来るまで"
 lang: "ja"
-date: 2024-07-30
+date: 2024-05-10
 updated: 2026-06-15
 category: walk
 series: Good Samaritan Mission
@@ -9,8 +9,6 @@ order: 1
 description: "振り返ると、あの頃は偶然の出来事のように思えた時間がありました。しかし時が経って初めて、そのすべてが神様によって備えられた道だったことを少しずつ知るようになりました。"
 draft: false
 ---
-
-# 東京に来るまで
 
 今、私たちは東京で暮らしています。
 
