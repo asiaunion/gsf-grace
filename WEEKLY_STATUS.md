@@ -81,3 +81,10 @@
 | 🟢 | Nav 하드코딩 변수화 | |
 | 🟢 | 뉴스레터 폼 연동 확인 | |
 | 🟢 | content-pipeline git commit 확인 | |
+
+
+## 📝 작업 로그
+### 2026-06-15
+- GSFGrace 로고 UI 일체형 버튼 디자인 개선
+- Devotion 묵상 글 3편 추가 및 다국어(ko/ja) 배포
+- Devotion 인트로 및 Story 뉴스레터 문구 수정
