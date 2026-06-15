@@ -5,7 +5,7 @@ pubDate: 2026-06-15
 tag: "salvation"
 question: "神は私のような人も受け入れてくれるのか"
 description: "もう遅いと思う時、聖書は意外な物語を語ります。"
-draft: true
+draft: false
 ---
 
 人生のどこかで、こんなことを考える時があります。

@@ -5,7 +5,7 @@ pubDate: 2026-06-15
 tag: "salvation"
 question: "하나님은 나 같은 사람도 받아주시는가?"
 description: "돌아갈 자격이 없다고 느낄 때, 성경은 뜻밖의 이야기를 들려줍니다."
-draft: true
+draft: false
 ---
 
 살면서 한 번쯤은 이런 생각을 합니다.
