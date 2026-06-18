@@ -8,6 +8,8 @@ series: Good Samaritan Mission
 order: 3
 description: "見知らぬ国で暮らすということは、大きな出来事よりも小さな一歩を積み重ねていくことなのかもしれません。少しずつ学び、少しずつ理解し、少しずつ愛するようになっていきます。"
 draft: false
+location: "東京 日本橋"
+author: "승주"
 ---
 
 季節はいつの間にか秋になりました。

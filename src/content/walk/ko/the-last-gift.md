@@ -8,6 +8,8 @@ series: Good Samaritan Mission
 order: 4
 description: "삶의 마지막 순간에 사람에게 가장 필요한 것은 무엇일까요. 요양시설에서 일하며 저는 그 질문을 자주 마주하게 되었습니다."
 draft: false
+location: "도쿄 니혼바시"
+author: "승주"
 ---
 
 봄이 찾아왔습니다.

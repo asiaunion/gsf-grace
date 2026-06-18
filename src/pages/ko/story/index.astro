@@ -170,10 +170,20 @@ import PathLine from '../../../components/PathLine.astro';
         <div class="cta-card" id="story-newsletter-cta">
           <h2>도쿄에서 보내는 편지</h2>
           <p>새로운 글과 도쿄에서의 선교 걸음을, 전해 드립니다.</p>
-          <form action="#" method="POST" class="inline-form" aria-label="뉴스레터 신청">
-            <input type="email" name="email" placeholder="이메일 주소" required id="story-email-input" />
-            <button type="submit" id="story-subscribe-btn">편지 받기</button>
-          </form>
+          <div class="newsletter-wrap" id="newsletter-ko">
+            <form class="inline-form" id="kit-form-ko" novalidate>
+              <input
+                type="email"
+                name="email"
+                placeholder="이메일 주소"
+                required
+                autocomplete="email"
+                id="kit-email-ko"
+              />
+              <button type="submit" id="kit-btn-ko">편지 받기</button>
+            </form>
+            <p class="form-msg" id="kit-msg-ko" aria-live="polite"></p>
+          </div>
         </div>
         <div class="cta-card prayer-card" id="story-prayer-cta">
           <h2>기도로 함께</h2>
@@ -213,5 +223,46 @@ import PathLine from '../../../components/PathLine.astro';
   .story-walk-link { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-line); font-size: 0.9rem; color: var(--color-muted); font-family: var(--font-sans); line-height: 1.8; }
   .story-walk-link a { color: var(--color-accent); text-decoration: none; font-weight: 600; }
   .story-walk-link a:hover { text-decoration: underline; }
+  .form-msg { font-size: 0.82rem; margin-top: 0.5rem; min-height: 1.2em; font-family: var(--font-sans); }
   @media (max-width: 600px) { .cta-grid { grid-template-columns: 1fr; } }
 </style>
+
+<script>
+  const form = document.getElementById('kit-form-ko');
+  const msg = document.getElementById('kit-msg-ko');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = (document.getElementById('kit-email-ko') as HTMLInputElement).value.trim();
+    if (!email) return;
+
+    const btn = document.getElementById('kit-btn-ko') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = '전송 중…';
+
+    try {
+      const formId = import.meta.env.PUBLIC_KIT_FORM_ID;
+      const apiKey = import.meta.env.PUBLIC_KIT_API_KEY;
+      const res = await fetch(
+        `https://api.convertkit.com/v3/forms/${formId}/subscribe`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ api_key: apiKey, email }),
+        }
+      );
+      if (res.ok) {
+        msg.textContent = '등록되었습니다. 도쿄에서 보내는 편지를 기다려 주세요.';
+        msg.style.color = 'var(--color-accent)';
+        form.style.display = 'none';
+      } else {
+        throw new Error('failed');
+      }
+    } catch {
+      msg.textContent = '오류가 발생했습니다. 다시 시도해 주세요.';
+      msg.style.color = '#e53e3e';
+      btn.disabled = false;
+      btn.textContent = '편지 받기';
+    }
+  });
+</script>

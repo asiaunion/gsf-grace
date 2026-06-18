@@ -8,6 +8,8 @@ series: Good Samaritan Mission
 order: 2
 description: "東京に来て間もない頃、私たちの生活は待つことの連続でした。住まいも、ビザも、健康も。答えの見えない時間の中で、神様は少しずつ道を開いておられました。"
 draft: false
+location: "東京 日本橋"
+author: "승주"
 ---
 
 東京に来て間もない頃、私たちの生活は待つことの連続でした。

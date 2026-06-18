@@ -8,6 +8,8 @@ series: Good Samaritan Mission
 order: 2
 description: "도쿄에 온 지 얼마 되지 않았을 때, 우리의 삶은 기다림의 연속이었습니다. 집도, 비자도, 건강도. 답을 알 수 없는 시간 속에서 하나님은 조금씩 길을 열어 가고 계셨습니다."
 draft: false
+location: "도쿄 니혼바시"
+author: "승주"
 ---
 
 도쿄에 온 지 얼마 되지 않았을 때, 우리의 삶은 기다림의 연속이었습니다.

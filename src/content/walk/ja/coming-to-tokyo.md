@@ -8,6 +8,8 @@ series: Good Samaritan Mission
 order: 1
 description: "振り返ると、あの頃は偶然の出来事のように思えた時間がありました。しかし時が経って初めて、そのすべてが神様によって備えられた道だったことを少しずつ知るようになりました。"
 draft: false
+location: "東京 日本橋"
+author: "승주"
 ---
 
 今、私たちは東京で暮らしています。

@@ -8,6 +8,8 @@ series: Good Samaritan Mission
 order: 3
 description: "낯선 나라에서 살아간다는 것은 거창한 사건보다 작은 걸음을 반복하는 일에 가깝습니다. 조금씩 배우고, 조금씩 이해하며, 조금씩 사랑하게 됩니다."
 draft: false
+location: "도쿄 니혼바시"
+author: "승주"
 ---
 
 계절은 어느새 가을이 되었습니다.

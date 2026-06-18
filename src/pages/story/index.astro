@@ -174,10 +174,20 @@ import PathLine from '../../components/PathLine.astro';
         <div class="cta-card" id="story-newsletter-cta">
           <h2>東京からの手紙を受け取る</h2>
           <p>新しい記事と宣教のことを、お届けします。</p>
-          <form action="#" method="POST" class="inline-form" aria-label="Newsletter signup">
-            <input type="email" name="email" placeholder="メールアドレス" required id="story-email-input" />
-            <button type="submit" id="story-subscribe-btn">手紙を受け取る</button>
-          </form>
+          <div class="newsletter-wrap" id="newsletter-ja">
+            <form class="inline-form" id="kit-form-ja" novalidate>
+              <input
+                type="email"
+                name="email"
+                placeholder="メールアドレス"
+                required
+                autocomplete="email"
+                id="kit-email-ja"
+              />
+              <button type="submit" id="kit-btn-ja">手紙を受け取る</button>
+            </form>
+            <p class="form-msg" id="kit-msg-ja" aria-live="polite"></p>
+          </div>
         </div>
         <div class="cta-card prayer-card" id="story-prayer-cta">
           <h2>祈りで共に</h2>
@@ -367,9 +377,56 @@ import PathLine from '../../components/PathLine.astro';
     text-decoration: underline;
   }
 
+  .form-msg {
+    font-size: 0.82rem;
+    margin-top: 0.5rem;
+    min-height: 1.2em;
+    font-family: var(--font-sans);
+  }
+
   @media (max-width: 600px) {
     .cta-grid {
       grid-template-columns: 1fr;
     }
   }
 </style>
+
+<script>
+  const form = document.getElementById('kit-form-ja');
+  const msg = document.getElementById('kit-msg-ja');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = (document.getElementById('kit-email-ja') as HTMLInputElement).value.trim();
+    if (!email) return;
+
+    const btn = document.getElementById('kit-btn-ja') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = '送信中…';
+
+    try {
+      const formId = import.meta.env.PUBLIC_KIT_FORM_ID;
+      const apiKey = import.meta.env.PUBLIC_KIT_API_KEY;
+      const res = await fetch(
+        `https://api.convertkit.com/v3/forms/${formId}/subscribe`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ api_key: apiKey, email }),
+        }
+      );
+      if (res.ok) {
+        msg.textContent = '登録しました。東京からの手紙をお楽しみに。';
+        msg.style.color = 'var(--color-accent)';
+        form.style.display = 'none';
+      } else {
+        throw new Error('failed');
+      }
+    } catch {
+      msg.textContent = 'エラーが発生しました。もう一度お試しください。';
+      msg.style.color = '#e53e3e';
+      btn.disabled = false;
+      btn.textContent = '手紙を受け取る';
+    }
+  });
+</script>

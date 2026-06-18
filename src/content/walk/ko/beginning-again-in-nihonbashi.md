@@ -8,6 +8,8 @@ series: Good Samaritan Mission
 order: 6
 description: "에도 시대부터 일본의 모든 길이 시작된 곳, 니혼바시. 우리는 그곳에서 새로운 삶과 새로운 부르심을 다시 마주하게 되었습니다."
 draft: false
+location: "도쿄 니혼바시"
+author: "승주"
 ---
 
 새로운 봄이 찾아왔습니다.

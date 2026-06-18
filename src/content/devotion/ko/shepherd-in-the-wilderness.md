@@ -4,6 +4,7 @@ passage: 시편 23:1-6
 lang: ko
 pubDate: 2026-06-12
 draft: false
+author: "승주"
 ---
 
 우리는 시편 23편을 너무 잘 알고 있습니다.

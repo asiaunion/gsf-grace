@@ -8,6 +8,8 @@ series: Good Samaritan Mission
 order: 4
 description: "人生の終わりに、人にとって本当に必要なものは何でしょうか。介護の現場で働きながら、私はその問いと何度も向き合うようになりました。"
 draft: false
+location: "東京 日本橋"
+author: "승주"
 ---
 
 春がやってきました。

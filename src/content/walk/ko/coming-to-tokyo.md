@@ -8,6 +8,8 @@ series: Good Samaritan Mission
 order: 1
 description: "돌아보면 우연처럼 보였던 시간들이 있었습니다. 그러나 시간이 흐른 뒤에야, 그 모든 과정이 하나님께서 준비하신 길이었음을 조금씩 깨닫게 되었습니다."
 draft: false
+location: "도쿄 니혼바시"
+author: "승주"
 ---
 
 도쿄에서 살아가고 있지만, 사실 저희의 이야기는 훨씬 이전에 시작되었습니다.

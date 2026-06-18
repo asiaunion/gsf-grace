@@ -8,6 +8,8 @@ series: Good Samaritan Mission
 order: 5
 description: "私たちは奇跡を特別な出来事だと思いがちです。しかし振り返ると、神様は日々の小さな出来事を通して、静かに希望を与えてくださっていました。"
 draft: false
+location: "東京 日本橋"
+author: "승주"
 ---
 
 一年の終わりを迎えながら、この一年を振り返ってみました。

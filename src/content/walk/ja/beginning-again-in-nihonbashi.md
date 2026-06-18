@@ -8,6 +8,8 @@ series: Good Samaritan Mission
 order: 6
 description: "江戸時代から日本のすべての道が始まる場所、日本橋。私たちはそこで新しい暮らしと、新しい召しをもう一度見つめ直すことになりました。"
 draft: false
+location: "東京 日本橋"
+author: "승주"
 ---
 
 新しい春がやってきました。

@@ -8,6 +8,8 @@ series: Good Samaritan Mission
 order: 5
 description: "우리는 종종 기적을 특별한 일로 생각합니다. 하지만 돌아보면 하나님은 일상의 작은 순간들을 통해 우리에게 희망을 건네고 계셨습니다."
 draft: false
+location: "도쿄 니혼바시"
+author: "승주"
 ---
 
 한 해를 마무리하며 지난 시간을 돌아보았습니다.

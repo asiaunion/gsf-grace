@@ -4,6 +4,7 @@ passage: 시편 90:1-17
 lang: ko
 pubDate: 2026-06-13
 draft: false
+author: "승주"
 ---
 
 우리는 영원히 살 것처럼 살아갈 때가 있습니다.

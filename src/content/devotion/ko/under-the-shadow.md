@@ -4,6 +4,7 @@ passage: 시편 91:1-16
 lang: ko
 pubDate: 2026-06-15
 draft: false
+author: "승주"
 ---
 
 우리는 안전을 원합니다.
