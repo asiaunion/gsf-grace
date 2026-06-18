@@ -405,8 +405,8 @@ import PathLine from '../../components/PathLine.astro';
     btn.textContent = '送信中…';
 
     try {
-      const formId = import.meta.env.PUBLIC_KIT_FORM_ID;
-      const apiKey = import.meta.env.PUBLIC_KIT_API_KEY;
+      const formId = import.meta.env.PUBLIC_KIT_FORM_ID || '9581029';
+      const apiKey = import.meta.env.PUBLIC_KIT_API_KEY || 'nfj8kArsaoCcSpYBMFlObw';
       const res = await fetch(
         `https://api.convertkit.com/v3/forms/${formId}/subscribe`,
         {
