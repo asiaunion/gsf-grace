@@ -17,7 +17,14 @@
 
 ## [2026-06-18 18:25] AG 배포 완료
 - 작업 내용: TASK 1~4 (Walk/Devotion 메타데이터 추가, Nav config 분리, ConvertKit 뉴스레터 폼 JA/KO 연동)
-- 커밋 해시: af9ea5d
+- 커밋 해시: af9ea5d, 389558b
 - 배포 URL: https://gsfgrace.com
 - Claude 부재 여부: 예
 - 특이사항: Vercel 자동 배포 트리거를 위해 main 브랜치로 병합 후 푸시 완료
+
+## [2026-06-18 18:30] AG 핫픽스 배포 완료
+- 작업 내용: Vercel 환경변수 누락으로 인한 Kit API 401 오류 핫픽스
+- 커밋 해시: bef8291
+- 배포 URL: https://gsfgrace.com
+- Claude 부재 여부: 예
+- 특이사항: `import.meta.env` 환경변수 뒤에 하드코딩 Fallback 문자열(`|| '9581029'`)을 추가하여 Vercel 대시보드 환경변수 설정 없이도 동작하도록 수정 후 main 푸시 완료
