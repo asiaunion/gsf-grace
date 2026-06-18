@@ -14,3 +14,10 @@
 - Claude 부재 여부:
 - 특이사항:
 -->
+
+## [2026-06-18 18:25] AG 배포 완료
+- 작업 내용: TASK 1~4 (Walk/Devotion 메타데이터 추가, Nav config 분리, ConvertKit 뉴스레터 폼 JA/KO 연동)
+- 커밋 해시: af9ea5d
+- 배포 URL: https://gsfgrace.com
+- Claude 부재 여부: 예
+- 특이사항: Vercel 자동 배포 트리거를 위해 main 브랜치로 병합 후 푸시 완료
