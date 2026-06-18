@@ -1,6 +1,6 @@
 # _handoff.md — Claude 부재 구간 핸드오프 기록
 > AG가 배포 작업 완료 시마다 append 방식으로 기록.
-> Claude가 다음 세션 시작 시 이 파일을 읽어 컨텍스트 복원.
+> Claude가 다음 세션 시작 시 이 시 파일을 읽어 컨텍스트 복원.
 > 규칙: `scratch/AGENTS.md` → 핸드오프 자동 기록 규칙 참조.
 
 ---
@@ -35,3 +35,10 @@
 - 배포 URL: https://gsfgrace.com/thank-you
 - Claude 부재 여부: 예
 - 특이사항: 지시서 내 TASK 2(Kit 대시보드 리다이렉트 변경)는 사용자가 직접 수행해야 함
+
+## [2026-06-18 19:07] AG 배포 완료
+- 작업 내용: `/thank-you` 페이지 내 서명 문구 업데이트(한자 및 한글 이름 표기 추가)
+- 커밋 해시: 8450209
+- 배포 URL: https://gsfgrace.com/thank-you
+- Claude 부재 여부: 예
+- 특이사항: `AG_thankyou_2026-06-18.md` 수정본 재적용 완료
