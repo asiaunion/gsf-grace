@@ -28,3 +28,10 @@
 - 배포 URL: https://gsfgrace.com
 - Claude 부재 여부: 예
 - 특이사항: `import.meta.env` 환경변수 뒤에 하드코딩 Fallback 문자열(`|| '9581029'`)을 추가하여 Vercel 대시보드 환경변수 설정 없이도 동작하도록 수정 후 main 푸시 완료
+
+## [2026-06-18 19:03] AG 배포 완료
+- 작업 내용: 뉴스레터 구독 완료 후 사용할 `/thank-you` 페이지 생성 (JA/KO 지원)
+- 커밋 해시: 2be45eb
+- 배포 URL: https://gsfgrace.com/thank-you
+- Claude 부재 여부: 예
+- 특이사항: 지시서 내 TASK 2(Kit 대시보드 리다이렉트 변경)는 사용자가 직접 수행해야 함
