@@ -1,5 +1,5 @@
-# _handoff.md — Claude 부재 구간 핸드오프 기록
-> AG가 배포 작업 완료 시마다 append 방식으로 기록.
+# _handoff.md — Claude 부재 구간 핸드오프 기록 (GSF-Grace)
+> AG가 GSF-Grace 배포 작업 완료 시마다 append 방식으로 기록.
 > Claude가 다음 세션 시작 시 이 시 파일을 읽어 컨텍스트 복원.
 > 규칙: `scratch/AGENTS.md` → 핸드오프 자동 기록 규칙 참조.
 
