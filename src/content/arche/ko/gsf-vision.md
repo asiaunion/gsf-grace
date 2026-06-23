@@ -1,7 +1,7 @@
 ---
 title: "GSF 비전"
 lang: "ko"
-pubDate: 2026-06-23
+pubDate: 2026-06-18
 description: "GSF-Vision은 하나님의 풍성한 생명과 사랑을 선한 사마리아인의 삶으로 누리고 나누며, 함께 하나님을 더욱 사랑해 가는 삶의 방향성입니다."
 draft: false
 ---

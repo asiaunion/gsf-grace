@@ -1,7 +1,7 @@
 ---
 title: "GSFステートメント"
 lang: "ja"
-pubDate: 2026-06-23
+pubDate: 2026-06-20
 description: "Ark、Grace、Oikosを通じて、GSFが実際の歩みの中でどのように体現されているか。構造と物語、そして今私たちが生きている場所。"
 draft: false
 ---

@@ -1,7 +1,7 @@
 ---
 title: "GSFビジョン"
 lang: "ja"
-pubDate: 2026-06-23
+pubDate: 2026-06-18
 description: "GSF-Visionとは、神の豊かないのちと愛を善きサマリア人の歩みとして受け取り、分かち合い、共に神をより深く愛していく生き方の方向性です。"
 draft: false
 ---

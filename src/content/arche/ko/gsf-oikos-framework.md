@@ -1,7 +1,7 @@
 ---
 title: "아직 오지 않은 공동체를 향하여"
 lang: "ko"
-pubDate: 2026-06-23
+pubDate: 2026-06-21
 description: "Good Samaritan Mission & Nihonbashi Vision. 아직 실현되지 않은 OIKOS를 향해, 지금 어떤 사역 철학과 장소 비전으로 준비되고 있는가."
 draft: false
 ---

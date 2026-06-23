@@ -1,7 +1,7 @@
 ---
 title: "Good Samaritan Mission"
 lang: "ja"
-pubDate: 2026-06-23
+pubDate: 2026-06-22
 description: "私たちは善きサマリア人の道を歩みたいと願っています。神を愛し、隣人を愛し、福音を生き、神の国を待ち望みながら歩むこと。それがGood Samaritan Missionの出発点です。"
 draft: false
 ---

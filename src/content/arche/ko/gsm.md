@@ -1,7 +1,7 @@
 ---
 title: "Good Samaritan Mission"
 lang: "ko"
-pubDate: 2026-06-23
+pubDate: 2026-06-22
 description: "저희는 선한 사마리아인의 길을 따르려 합니다. 하나님을 사랑하고, 이웃을 사랑하며, 복음을 살아내고, 하나님의 나라를 바라보며 걷는 것. 그것이 Good Samaritan Mission의 시작입니다."
 draft: false
 ---

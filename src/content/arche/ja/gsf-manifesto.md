@@ -1,7 +1,7 @@
 ---
 title: "GSFマニフェスト"
 lang: "ja"
-pubDate: 2026-06-23
+pubDate: 2026-06-19
 description: "GSFが歩む上で決して妥協できない原則と規律。神学的土台、非妥協の原則、そしてMission Statement。"
 draft: false
 ---

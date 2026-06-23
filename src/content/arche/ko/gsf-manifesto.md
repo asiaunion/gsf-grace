@@ -1,7 +1,7 @@
 ---
 title: "GSF 매니페스토"
 lang: "ko"
-pubDate: 2026-06-23
+pubDate: 2026-06-19
 description: "GSF가 걸어갈 때 결코 타협할 수 없는 원칙과 규율. 신학적 토대, 비타협 원칙, 그리고 Mission Statement."
 draft: false
 ---

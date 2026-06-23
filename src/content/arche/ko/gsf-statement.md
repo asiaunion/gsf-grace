@@ -1,7 +1,7 @@
 ---
 title: "GSF 스테이트먼트"
 lang: "ko"
-pubDate: 2026-06-23
+pubDate: 2026-06-20
 description: "Ark, Grace, Oikos를 통해 GSF가 실제 삶 속에서 구현되는 방식. 구조와 서사, 그리고 지금 저희가 살아내고 있는 자리."
 draft: false
 ---

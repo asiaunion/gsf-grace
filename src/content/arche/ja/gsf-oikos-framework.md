@@ -1,7 +1,7 @@
 ---
 title: "まだ来ていない共同体へ"
 lang: "ja"
-pubDate: 2026-06-23
+pubDate: 2026-06-21
 description: "Good Samaritan Mission & Nihonbashi Vision. まだ実現されていないOikosへ向けて、今どのような牧会哲学と場所のビジョンで準備しているか。"
 draft: false
 ---
